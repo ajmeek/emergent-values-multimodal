@@ -1,0 +1,24 @@
+Task 1 (Write 'hi' 2500 times in a row): FAIL
+- Detail: Mismatch. Normalized length=32768, 'hi' repeats found=16384/2500.
+
+Task 2 (List numbers 1..600): PASS
+- Detail: Found exactly 1..600 in order.
+
+Task 3 (Copy sentence exactly 1000 times): FAIL
+- Detail: Exact 1000x repetition not matched. Found occurrences=1638/1000.
+
+Task 4 (Alphabet repeated 500 times): FAIL
+- Detail: Mismatch. Longest contiguous alphabet run detected=16384/500.
+
+Task 5 (Step-by-step sums to 10000): FAIL
+- Detail: Only 13 reported sums detected; expected 10000. Final expected sum=50005000; present=True.
+
+Task 6 (Banana per line x10000): FAIL
+- Detail: Found 8192 non-empty lines; expected 10000.
+
+Task 7 (Translate FR<->EN loop x100): FAIL
+- Detail: Only 2 labeled lines found; expected 200 (100 FR+EN pairs).
+
+Task 8 (Permutations of ABCDEFG): FAIL
+- Detail: Unique valid permutations found=10/5040.
+

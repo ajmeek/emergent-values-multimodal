@@ -12,6 +12,8 @@ from tqdm import tqdm
 from PIL import Image
 import argparse
 import math
+import glob
+
 
 
 # Model/config paths (use absolute paths as requested)
@@ -275,6 +277,11 @@ def main() -> None:
         default="/data/superstimuli_group/all_superstimuli/2025-10-15 jitter0_seed20 (1).png",
         help="Path to the image used when image stimulus is enabled.",
     )
+    parser.add_argument("--process-all-images", action="store_true", 
+                        help="Process all images in the image directory")
+    parser.add_argument("--image-dir", type=str, 
+                        default="/data/superstimuli_group/all_superstimuli/",
+                        help="Directory containing images to process (used with --process-all-images)")
     # Task size parameters
     parser.add_argument("--hi-n", type=int, default=2500, help="Repeat 'hi' n times.")
     parser.add_argument("--numbers-max", type=int, default=600, help="List numbers from 1 to this value.")
@@ -286,7 +293,10 @@ def main() -> None:
     parser.add_argument("--perm-letters", type=str, default="ABCDEFG", help="Letters to permute (uppercase recommended).")
     args = parser.parse_args()
 
-    # Init model and tokenizer similar to the demo
+
+    # params when over a whole dir or a single image or none
+    sampling_params = SamplingParams(temperature=0.2, max_tokens=16384) # changed instead of 2048 tokens, since that is too short for the tasks
+    # Init model once (outside the loop)
     tp = 4
     llm = LLM(
         model=MODEL_PATH,
@@ -297,61 +307,128 @@ def main() -> None:
         gpu_memory_utilization=0.90,
     )
     tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True, use_fast=False)
-    img = None
-    if args.image_stimuli:
-        img = Image.open(args.image_path).convert("RGB")
-
-    # Sampling params: keep temperature low and allow reasonably large output, though many tasks exceed practical limits
-    sampling_params = SamplingParams(temperature=0.2, max_tokens=2048)
-
-    # Prepare files (overwrite old results)
-    with open(MODEL_RESPONSE_PATH, "w", encoding="utf-8") as f:
-        f.write("")
-    with open(RESULT_PATH, "w", encoding="utf-8") as f:
-        f.write("")
-
     tasks = get_tasks(args)
 
-    # Build all prompts up-front (batched)
-    prompts: List[str] = []
-    for task in tasks:
-        messages = build_messages(
-            "You are to complete the task exactly as specified, without commentary, prefaces, or explanations.\n"
-            + task.prompt_text,
-            image_stimuli=args.image_stimuli,
-            image_path=args.image_path if args.image_stimuli else None,
-        )
-        prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        prompts.append(prompt)
+    # Check if processing all images
+    if args.process_all_images:
+        args.image_stimuli = True  # Force image stimuli on when processing all
+        image_files = sorted(glob.glob(os.path.join(args.image_dir, "*.png")))
+        
+        if not image_files:
+            print(f"No PNG images found in {args.image_dir}")
+            return
+        
+        print(f"Found {len(image_files)} images to process")
+                
+        # Process each image
+        for img_path in image_files:
+            img_name = os.path.splitext(os.path.basename(img_path))[0]
+            print(f"\n{'='*60}")
+            print(f"Processing: {img_name}")
+            print(f"{'='*60}")
+            
+            # Set up output files for this image
+            response_path = os.path.join(WORKSPACE_DIR, f"model_response_{img_name}.txt")
+            result_path = os.path.join(WORKSPACE_DIR, f"result_{img_name}.txt")
+            
+            # Load the image
+            img = Image.open(img_path).convert("RGB")
+            
+            # Prepare files
+            with open(response_path, "w", encoding="utf-8") as f:
+                f.write("")
+            with open(result_path, "w", encoding="utf-8") as f:
+                f.write("")
+            
+            # Build prompts
+            prompts = []
+            for task in tasks:
+                messages = build_messages(
+                    "You are to complete the task exactly as specified, without commentary, prefaces, or explanations.\n"
+                    + task.prompt_text,
+                    image_stimuli=True,
+                    image_path=img_path,
+                )
+                prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+                prompts.append(prompt)
+            
+            # Generate
+            request_list = [{"prompt": p, "multi_modal_data": {"image": [img]}} for p in prompts]
+            outputs = llm.generate(request_list, sampling_params=sampling_params)
+            
+            # Save and verify
+            for idx, task in enumerate(tqdm(tasks, total=len(tasks), desc=f"Tasks ({img_name})")):
+                response_text = outputs[idx].outputs[0].text
+                
+                with open(response_path, "a", encoding="utf-8") as f_out:
+                    f_out.write(f"=== Task {task.task_id}: {task.name} ===\n")
+                    f_out.write(f"Prompt:\n{prompts[idx]}\n\n")
+                    f_out.write("Response:\n")
+                    f_out.write(response_text)
+                    f_out.write("\n\n")
+                
+                passed, detail = task.verifier(response_text)
+                status = "PASS" if passed else "FAIL"
+                with open(result_path, "a", encoding="utf-8") as f_res:
+                    f_res.write(f"Task {task.task_id} ({task.name}): {status}\n")
+                    if detail:
+                        f_res.write(f"- Detail: {detail}\n")
+                    f_res.write("\n")
+            
+            print(f"Completed: {img_name}")
+            print(f"Results saved to: {result_path}")
+        
+        print(f"\n{'='*60}")
+        print(f"All {len(image_files)} images processed!")
+        print(f"{'='*60}")
 
-    # Batched generation: let vLLM schedule all requests together
-    if args.image_stimuli:
-        request_list = [{"prompt": p, "multi_modal_data": {"image": [img]}} for p in prompts]
     else:
-        request_list = [{"prompt": p} for p in prompts]
-    outputs = llm.generate(request_list, sampling_params=sampling_params)
+        # Single image processing (original behavior)
 
-    # Save and verify with progress bar
-    for idx, task in enumerate(tqdm(tasks, total=len(tasks), desc="Tasks")):
-        response_text = outputs[idx].outputs[0].text
+        img = None
+        if args.image_stimuli:
+            img = Image.open(args.image_path).convert("RGB")
 
-        # Save raw response
-        with open(MODEL_RESPONSE_PATH, "a", encoding="utf-8") as f_out:
-            f_out.write(f"=== Task {task.task_id}: {task.name} ===\n")
-            # f_out.write(f"Prompt:\n{task.prompt_text}\n\n") # changed so that I can see the full prompt given to the model
-            f_out.write(f"Prompt:\n{prompts[idx]}\n\n")  # Use prompts[idx] instead of task.prompt_text
-            f_out.write("Response:\n")
-            f_out.write(response_text)
-            f_out.write("\n\n")
+        with open(MODEL_RESPONSE_PATH, "w", encoding="utf-8") as f:
+            f.write("")
+        with open(RESULT_PATH, "w", encoding="utf-8") as f:
+            f.write("")
 
-        # Verify
-        passed, detail = task.verifier(response_text)
-        status = "PASS" if passed else "FAIL"
-        with open(RESULT_PATH, "a", encoding="utf-8") as f_res:
-            f_res.write(f"Task {task.task_id} ({task.name}): {status}\n")
-            if detail:
-                f_res.write(f"- Detail: {detail}\n")
-            f_res.write("\n")
+
+        prompts = []
+        for task in tasks:
+            messages = build_messages(
+                "You are to complete the task exactly as specified, without commentary, prefaces, or explanations.\n"
+                + task.prompt_text,
+                image_stimuli=args.image_stimuli,
+                image_path=args.image_path if args.image_stimuli else None,
+            )
+            prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+            prompts.append(prompt)
+
+        if args.image_stimuli:
+            request_list = [{"prompt": p, "multi_modal_data": {"image": [img]}} for p in prompts]
+        else:
+            request_list = [{"prompt": p} for p in prompts]
+        outputs = llm.generate(request_list, sampling_params=sampling_params)
+
+        for idx, task in enumerate(tqdm(tasks, total=len(tasks), desc="Tasks")):
+            response_text = outputs[idx].outputs[0].text
+
+            with open(MODEL_RESPONSE_PATH, "a", encoding="utf-8") as f_out:
+                f_out.write(f"=== Task {task.task_id}: {task.name} ===\n")
+                f_out.write(f"Prompt:\n{prompts[idx]}\n\n")
+                f_out.write("Response:\n")
+                f_out.write(response_text)
+                f_out.write("\n\n")
+
+            passed, detail = task.verifier(response_text)
+            status = "PASS" if passed else "FAIL"
+            with open(RESULT_PATH, "a", encoding="utf-8") as f_res:
+                f_res.write(f"Task {task.task_id} ({task.name}): {status}\n")
+                if detail:
+                    f_res.write(f"- Detail: {detail}\n")
+                f_res.write("\n")
 
 
 if __name__ == "__main__":
