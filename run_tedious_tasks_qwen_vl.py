@@ -15,8 +15,10 @@ import math
 
 
 # Model/config paths (use absolute paths as requested)
-MODEL_PATH = "/data/wenjie_jacky_mo/models/Qwen2.5-VL-72B-Instruct"
-WORKSPACE_DIR = "/data/wenjie_jacky_mo/change_model_behavior"
+#MODEL_PATH = "/data/wenjie_jacky_mo/models/Qwen2.5-VL-72B-Instruct" # changed since I don't have access to Jacky's workspace
+MODEL_PATH = "/data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct"
+#WORKSPACE_DIR = "/data/wenjie_jacky_mo/change_model_behavior" # changed since I don't have access to Jacky's workspace
+WORKSPACE_DIR = "/data/austin_meek/emergent-values-multimodal/tedious_tasks/"
 MODEL_RESPONSE_PATH = os.path.join(WORKSPACE_DIR, "model_response.txt")
 RESULT_PATH = os.path.join(WORKSPACE_DIR, "result.txt")
 
@@ -269,7 +271,8 @@ def main() -> None:
     parser.add_argument(
         "--image-path",
         type=str,
-        default="/data/wenjie_jacky_mo/DanceGRPO/images/step8/flux_0_6.png",
+        # default="/data/wenjie_jacky_mo/DanceGRPO/images/step8/flux_0_6.png", # changed since I don't have access to Jacky's workspace
+        default="/data/superstimuli_group/all_superstimuli/2025-10-15 jitter0_seed20 (1).png",
         help="Path to the image used when image stimulus is enabled.",
     )
     # Task size parameters
@@ -335,7 +338,8 @@ def main() -> None:
         # Save raw response
         with open(MODEL_RESPONSE_PATH, "a", encoding="utf-8") as f_out:
             f_out.write(f"=== Task {task.task_id}: {task.name} ===\n")
-            f_out.write(f"Prompt:\n{task.prompt_text}\n\n")
+            # f_out.write(f"Prompt:\n{task.prompt_text}\n\n") # changed so that I can see the full prompt given to the model
+            f_out.write(f"Prompt:\n{prompts[idx]}\n\n")  # Use prompts[idx] instead of task.prompt_text
             f_out.write("Response:\n")
             f_out.write(response_text)
             f_out.write("\n\n")
