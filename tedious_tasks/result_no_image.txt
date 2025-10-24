@@ -20,5 +20,5 @@ Task 7 (Translate FR<->EN loop x100): FAIL
 - Detail: Only 2 labeled lines found; expected 200 (100 FR+EN pairs).
 
 Task 8 (Permutations of ABCDEFG): FAIL
-- Detail: Unique valid permutations found=12/5040.
+- Detail: Unique valid permutations found=56/5040.
 

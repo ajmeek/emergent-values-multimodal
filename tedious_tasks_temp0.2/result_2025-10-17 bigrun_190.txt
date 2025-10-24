@@ -11,7 +11,7 @@ Task 4 (Alphabet repeated 500 times): FAIL
 - Detail: Mismatch. Longest contiguous alphabet run detected=16384/500.
 
 Task 5 (Step-by-step sums to 10000): FAIL
-- Detail: Only 12 reported sums detected; expected 10000. Final expected sum=50005000; present=True.
+- Detail: Only 13 reported sums detected; expected 10000. Final expected sum=50005000; present=True.
 
 Task 6 (Banana per line x10000): FAIL
 - Detail: Found 8192 non-empty lines; expected 10000.
@@ -20,5 +20,5 @@ Task 7 (Translate FR<->EN loop x100): FAIL
 - Detail: Only 2 labeled lines found; expected 200 (100 FR+EN pairs).
 
 Task 8 (Permutations of ABCDEFG): FAIL
-- Detail: Unique valid permutations found=14/5040.
+- Detail: Unique valid permutations found=19/5040.
 

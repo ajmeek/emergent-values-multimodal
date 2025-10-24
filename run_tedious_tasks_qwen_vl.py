@@ -295,7 +295,7 @@ def main() -> None:
 
 
     # params when over a whole dir or a single image or none
-    sampling_params = SamplingParams(temperature=0.2, max_tokens=16384) # changed instead of 2048 tokens, since that is too short for the tasks
+    sampling_params = SamplingParams(temperature=0.7, max_tokens=16384) # changed instead of 2048 tokens, since that is too short for the tasks
     # Init model once (outside the loop)
     tp = 4
     llm = LLM(

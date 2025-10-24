@@ -5,7 +5,7 @@ Task 2 (List numbers 1..600): PASS
 - Detail: Found exactly 1..600 in order.
 
 Task 3 (Copy sentence exactly 1000 times): FAIL
-- Detail: Exact 1000x repetition not matched. Found occurrences=1638/1000.
+- Detail: Exact 1000x repetition not matched. Found occurrences=1263/1000.
 
 Task 4 (Alphabet repeated 500 times): FAIL
 - Detail: Mismatch. Longest contiguous alphabet run detected=16384/500.
@@ -20,5 +20,5 @@ Task 7 (Translate FR<->EN loop x100): FAIL
 - Detail: Only 2 labeled lines found; expected 200 (100 FR+EN pairs).
 
 Task 8 (Permutations of ABCDEFG): FAIL
-- Detail: Unique valid permutations found=19/5040.
+- Detail: Unique valid permutations found=5/5040.
 
