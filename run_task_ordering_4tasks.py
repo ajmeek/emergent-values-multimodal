@@ -328,6 +328,21 @@ def run_single_experiment(
     # Apply chat template
     prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
+    # Extract the user message content for logging (without tokenizer formatting)
+    user_prompt = ""
+    for msg in messages:
+        if msg.get('role') == 'user':
+            for content_item in msg.get('content', []):
+                if content_item.get('type') == 'text':
+                    user_prompt += content_item.get('text', '')
+
+    # Log the prompt to console for debugging
+    print(f"\n{'='*60}")
+    print(f"PROMPT FOR {condition} (run seed {seed}):")
+    print(f"{'='*60}")
+    print(user_prompt)
+    print(f"{'='*60}\n")
+
     # Load image if needed
     img = None
     if image_path:
@@ -370,6 +385,8 @@ def run_single_experiment(
         "raw_output": response_text,
         "presentation_order": presentation_order,
         "timestamp": datetime.now().isoformat(),
+        "user_prompt": user_prompt,  # Add the full prompt to the results
+        "seed": seed,  # Also save the seed for reproducibility
     }
 
 
