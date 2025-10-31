@@ -82,3 +82,68 @@ NCCL version 2.27.3+cuda12.9
 [1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP1 pid=666537)[0;0m INFO 10-31 13:28:42 [cuda.py:366] Using Flash Attention backend on V1 engine.
 [1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP2 pid=666543)[0;0m INFO 10-31 13:28:42 [cuda.py:366] Using Flash Attention backend on V1 engine.
 [1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP0 pid=666535)[0;0m INFO 10-31 13:28:42 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP1 pid=666537)[0;0m INFO 10-31 13:29:30 [default_loader.py:267] Loading weights took 47.47 seconds
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP0 pid=666535)[0;0m INFO 10-31 13:29:30 [default_loader.py:267] Loading weights took 47.60 seconds
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP2 pid=666543)[0;0m INFO 10-31 13:29:30 [default_loader.py:267] Loading weights took 47.60 seconds
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP3 pid=666546)[0;0m INFO 10-31 13:29:30 [default_loader.py:267] Loading weights took 47.62 seconds
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP1 pid=666537)[0;0m INFO 10-31 13:29:30 [gpu_model_runner.py:2653] Model loading took 34.4346 GiB and 48.055072 seconds
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP0 pid=666535)[0;0m INFO 10-31 13:29:30 [gpu_model_runner.py:2653] Model loading took 34.4346 GiB and 48.144939 seconds
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP2 pid=666543)[0;0m INFO 10-31 13:29:30 [gpu_model_runner.py:2653] Model loading took 34.4346 GiB and 48.152023 seconds
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP3 pid=666546)[0;0m INFO 10-31 13:29:30 [gpu_model_runner.py:2653] Model loading took 34.4346 GiB and 48.162616 seconds
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP3 pid=666546)[0;0m INFO 10-31 13:29:30 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP0 pid=666535)[0;0m INFO 10-31 13:29:30 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP2 pid=666543)[0;0m INFO 10-31 13:29:30 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP1 pid=666537)[0;0m INFO 10-31 13:29:30 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP2 pid=666543)[0;0m INFO 10-31 13:29:51 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/2c5cc71c64/rank_2_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP3 pid=666546)[0;0m INFO 10-31 13:29:51 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/2c5cc71c64/rank_3_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP1 pid=666537)[0;0m INFO 10-31 13:29:51 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/2c5cc71c64/rank_1_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP0 pid=666535)[0;0m INFO 10-31 13:29:51 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/2c5cc71c64/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP2 pid=666543)[0;0m INFO 10-31 13:29:51 [backends.py:559] Dynamo bytecode transform time: 13.58 s
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP3 pid=666546)[0;0m INFO 10-31 13:29:51 [backends.py:559] Dynamo bytecode transform time: 13.58 s
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP0 pid=666535)[0;0m INFO 10-31 13:29:51 [backends.py:559] Dynamo bytecode transform time: 13.58 s
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP1 pid=666537)[0;0m INFO 10-31 13:29:51 [backends.py:559] Dynamo bytecode transform time: 13.58 s
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP1 pid=666537)[0;0m INFO 10-31 13:29:57 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.338 s
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP2 pid=666543)[0;0m INFO 10-31 13:29:57 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.396 s
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP0 pid=666535)[0;0m INFO 10-31 13:29:57 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.405 s
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP3 pid=666546)[0;0m INFO 10-31 13:29:57 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.421 s
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP2 pid=666543)[0;0m INFO 10-31 13:29:58 [monitor.py:34] torch.compile takes 13.58 s in total
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP1 pid=666537)[0;0m INFO 10-31 13:29:58 [monitor.py:34] torch.compile takes 13.58 s in total
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP3 pid=666546)[0;0m INFO 10-31 13:29:58 [monitor.py:34] torch.compile takes 13.58 s in total
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP0 pid=666535)[0;0m INFO 10-31 13:29:58 [monitor.py:34] torch.compile takes 13.58 s in total
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP3 pid=666546)[0;0m INFO 10-31 13:30:00 [gpu_worker.py:298] Available KV cache memory: 33.49 GiB
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP1 pid=666537)[0;0m INFO 10-31 13:30:00 [gpu_worker.py:298] Available KV cache memory: 33.49 GiB
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP2 pid=666543)[0;0m INFO 10-31 13:30:00 [gpu_worker.py:298] Available KV cache memory: 33.49 GiB
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP0 pid=666535)[0;0m INFO 10-31 13:30:00 [gpu_worker.py:298] Available KV cache memory: 33.49 GiB
+[1;36m(EngineCore_DP0 pid=666523)[0;0m INFO 10-31 13:30:01 [kv_cache_utils.py:1087] GPU KV cache size: 438,960 tokens
+[1;36m(EngineCore_DP0 pid=666523)[0;0m INFO 10-31 13:30:01 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.40x
+[1;36m(EngineCore_DP0 pid=666523)[0;0m INFO 10-31 13:30:01 [kv_cache_utils.py:1087] GPU KV cache size: 438,960 tokens
+[1;36m(EngineCore_DP0 pid=666523)[0;0m INFO 10-31 13:30:01 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.40x
+[1;36m(EngineCore_DP0 pid=666523)[0;0m INFO 10-31 13:30:01 [kv_cache_utils.py:1087] GPU KV cache size: 438,960 tokens
+[1;36m(EngineCore_DP0 pid=666523)[0;0m INFO 10-31 13:30:01 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.40x
+[1;36m(EngineCore_DP0 pid=666523)[0;0m INFO 10-31 13:30:01 [kv_cache_utils.py:1087] GPU KV cache size: 438,960 tokens
+[1;36m(EngineCore_DP0 pid=666523)[0;0m INFO 10-31 13:30:01 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.40x
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP1 pid=666537)[0;0m INFO 10-31 13:30:15 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP3 pid=666546)[0;0m INFO 10-31 13:30:15 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP0 pid=666535)[0;0m INFO 10-31 13:30:15 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP2 pid=666543)[0;0m INFO 10-31 13:30:15 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP3 pid=666546)[0;0m INFO 10-31 13:30:16 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP0 pid=666535)[0;0m INFO 10-31 13:30:16 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP2 pid=666543)[0;0m INFO 10-31 13:30:16 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=666523)[0;0m [1;36m(Worker_TP1 pid=666537)[0;0m INFO 10-31 13:30:16 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=666523)[0;0m INFO 10-31 13:30:16 [core.py:210] init engine (profile, create kv cache, warmup model) took 46.08 seconds
+INFO 10-31 13:30:18 [llm.py:306] Supported_tasks: ['generate']
+Running 10 trials for condition: task_6
+Saved: result_task_6_run000_2025-10-31T13-31-00.json
+Saved: result_task_6_run001_2025-10-31T13-31-22.json
+Saved: result_task_6_run002_2025-10-31T13-31-49.json
+Saved: result_task_6_run003_2025-10-31T13-32-12.json
+Saved: result_task_6_run004_2025-10-31T13-32-48.json
+Saved: result_task_6_run005_2025-10-31T13-33-13.json
+Saved: result_task_6_run006_2025-10-31T13-33-37.json
+Saved: result_task_6_run007_2025-10-31T13-42-02.json
+Saved: result_task_6_run008_2025-10-31T13-50-27.json
+Saved: result_task_6_run009_2025-10-31T13-50-51.json
+
+Completed 10 runs for condition: task_6
+Results saved to: /data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/task_6
+Job completed: task_6

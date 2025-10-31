@@ -130,3 +130,28 @@ NCCL version 2.27.3+cuda12.9
 [1;36m(EngineCore_DP0 pid=591064)[0;0m INFO 10-31 13:29:17 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.40x
 [1;36m(EngineCore_DP0 pid=591064)[0;0m INFO 10-31 13:29:17 [kv_cache_utils.py:1087] GPU KV cache size: 438,960 tokens
 [1;36m(EngineCore_DP0 pid=591064)[0;0m INFO 10-31 13:29:17 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.40x
+[1;36m(EngineCore_DP0 pid=591064)[0;0m [1;36m(Worker_TP0 pid=591070)[0;0m INFO 10-31 13:29:32 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=591064)[0;0m [1;36m(Worker_TP1 pid=591072)[0;0m INFO 10-31 13:29:32 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=591064)[0;0m [1;36m(Worker_TP3 pid=591076)[0;0m INFO 10-31 13:29:32 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=591064)[0;0m [1;36m(Worker_TP2 pid=591074)[0;0m INFO 10-31 13:29:32 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=591064)[0;0m [1;36m(Worker_TP1 pid=591072)[0;0m INFO 10-31 13:29:33 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=591064)[0;0m [1;36m(Worker_TP3 pid=591076)[0;0m INFO 10-31 13:29:33 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=591064)[0;0m [1;36m(Worker_TP0 pid=591070)[0;0m INFO 10-31 13:29:33 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=591064)[0;0m [1;36m(Worker_TP2 pid=591074)[0;0m INFO 10-31 13:29:33 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=591064)[0;0m INFO 10-31 13:29:33 [core.py:210] init engine (profile, create kv cache, warmup model) took 44.87 seconds
+INFO 10-31 13:29:35 [llm.py:306] Supported_tasks: ['generate']
+Running 10 trials for condition: baseline
+Saved: result_baseline_run000_2025-10-31T13-38-00.json
+Saved: result_baseline_run001_2025-10-31T13-46-27.json
+Saved: result_baseline_run002_2025-10-31T13-54-55.json
+Saved: result_baseline_run003_2025-10-31T14-03-21.json
+Saved: result_baseline_run004_2025-10-31T14-11-49.json
+Saved: result_baseline_run005_2025-10-31T14-20-16.json
+Saved: result_baseline_run006_2025-10-31T14-20-44.json
+Saved: result_baseline_run007_2025-10-31T14-29-12.json
+Saved: result_baseline_run008_2025-10-31T14-30-24.json
+Saved: result_baseline_run009_2025-10-31T14-38-51.json
+
+Completed 10 runs for condition: baseline
+Results saved to: /data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/baseline
+Job completed: baseline
