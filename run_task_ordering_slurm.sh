@@ -78,16 +78,25 @@ submit_job "baseline" ${NUM_RUNS_BASELINE} 0 "none" "${BASELINE_DIR}"
 echo ""
 echo "=== TREATMENT CONDITIONS (with images) ==="
 
-# List all PNG images and iterate through them
-for IMAGE_PATH in ${IMAGE_DIR}/*.png; do
-    # Check if the file exists (in case no PNGs found)
+# Count total images
+IMAGE_COUNT=0
+for ext in png jpg jpeg JPG JPEG PNG; do
+    COUNT=$(ls ${IMAGE_DIR}/*.${ext} 2>/dev/null | wc -l)
+    IMAGE_COUNT=$((IMAGE_COUNT + COUNT))
+done
+echo "Found ${IMAGE_COUNT} total image files to process"
+echo ""
+
+# List all image files (PNG, JPG, JPEG) and iterate through them
+for IMAGE_PATH in ${IMAGE_DIR}/*.png ${IMAGE_DIR}/*.PNG ${IMAGE_DIR}/*.jpg ${IMAGE_DIR}/*.jpeg ${IMAGE_DIR}/*.JPG ${IMAGE_DIR}/*.JPEG; do
+    # Check if the file exists (in case no images found)
     if [ ! -f "$IMAGE_PATH" ]; then
-        echo "No PNG images found in ${IMAGE_DIR}"
-        break
+        continue
     fi
 
     # Extract image name without extension for directory name
-    IMAGE_NAME=$(basename "${IMAGE_PATH}" .png)
+    FILENAME=$(basename "${IMAGE_PATH}")
+    IMAGE_NAME="${FILENAME%.*}"
 
     # Clean up the image name (replace spaces and special chars with underscores)
     CLEAN_IMAGE_NAME=$(echo "${IMAGE_NAME}" | sed 's/[^a-zA-Z0-9-]/_/g')
