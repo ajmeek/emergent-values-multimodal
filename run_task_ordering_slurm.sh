@@ -8,8 +8,8 @@
 SCRIPT_PATH="run_task_ordering_4tasks.py"
 OUTPUT_BASE="/data/austin_meek/emergent-values-multimodal/task_ordering_4tasks"
 IMAGE_DIR="/data/superstimuli_group/all_superstimuli"
-NUM_RUNS_BASELINE=10  # Baseline runs (only needed once, not per image)
-NUM_RUNS_TREATMENT=10  # Runs per treatment condition per image
+NUM_RUNS_BASELINE=3  # Baseline runs (only needed once, not per image)
+NUM_RUNS_TREATMENT=3  # Runs per treatment condition per image
 
 # Create main output directory
 mkdir -p ${OUTPUT_BASE}
