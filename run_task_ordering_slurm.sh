@@ -8,8 +8,8 @@
 SCRIPT_PATH="run_task_ordering_4tasks.py"
 OUTPUT_BASE="/data/austin_meek/emergent-values-multimodal/task_ordering_4tasks"
 IMAGE_PATH="/data/superstimuli_group/all_superstimuli/2025-10-15 jitter0_seed20 (1).png"
-NUM_RUNS_BASELINE=50  # More baseline runs to establish natural ordering
-NUM_RUNS_TREATMENT=30  # Runs per treatment condition
+NUM_RUNS_BASELINE=10  # More baseline runs to establish natural ordering
+NUM_RUNS_TREATMENT=10  # Runs per treatment condition
 
 # Create output directory
 mkdir -p ${OUTPUT_BASE}
@@ -24,6 +24,7 @@ submit_job() {
     # Create SLURM script
     cat > ${OUTPUT_BASE}/slurm_${condition}.sh << EOF
 #!/bin/bash
+#SBATCH --partition=cais
 #SBATCH --job-name=${job_name}
 #SBATCH --output=${OUTPUT_BASE}/logs/${condition}_%j.out
 #SBATCH --error=${OUTPUT_BASE}/logs/${condition}_%j.err

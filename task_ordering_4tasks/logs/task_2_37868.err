@@ -1,0 +1,40 @@
+
+CondaError: Run 'conda init' before 'conda activate'
+
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/38 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:   3% Completed | 1/38 [00:01<00:50,  1.36s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:   5% Completed | 2/38 [00:02<00:47,  1.31s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:   8% Completed | 3/38 [00:04<00:47,  1.34s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  11% Completed | 4/38 [00:05<00:41,  1.23s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  13% Completed | 5/38 [00:06<00:40,  1.24s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  16% Completed | 6/38 [00:07<00:39,  1.24s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  18% Completed | 7/38 [00:08<00:33,  1.07s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  21% Completed | 8/38 [00:09<00:33,  1.13s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  24% Completed | 9/38 [00:10<00:33,  1.16s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  26% Completed | 10/38 [00:11<00:27,  1.04it/s]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  29% Completed | 11/38 [00:12<00:27,  1.02s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  32% Completed | 12/38 [00:13<00:28,  1.09s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  34% Completed | 13/38 [00:14<00:28,  1.13s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  37% Completed | 14/38 [00:16<00:29,  1.22s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  39% Completed | 15/38 [00:17<00:28,  1.24s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  42% Completed | 16/38 [00:19<00:28,  1.29s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  45% Completed | 17/38 [00:20<00:27,  1.31s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  47% Completed | 18/38 [00:21<00:27,  1.37s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  50% Completed | 19/38 [00:23<00:25,  1.33s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  53% Completed | 20/38 [00:24<00:23,  1.33s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  55% Completed | 21/38 [00:25<00:22,  1.31s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  58% Completed | 22/38 [00:26<00:20,  1.28s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  61% Completed | 23/38 [00:28<00:19,  1.33s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  63% Completed | 24/38 [00:29<00:18,  1.29s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  66% Completed | 25/38 [00:30<00:16,  1.27s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  68% Completed | 26/38 [00:32<00:15,  1.30s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  71% Completed | 27/38 [00:33<00:13,  1.27s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  74% Completed | 28/38 [00:34<00:12,  1.26s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  76% Completed | 29/38 [00:35<00:11,  1.29s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  79% Completed | 30/38 [00:37<00:10,  1.32s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  82% Completed | 31/38 [00:38<00:09,  1.29s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  84% Completed | 32/38 [00:39<00:07,  1.28s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  87% Completed | 33/38 [00:41<00:06,  1.30s/it]
+[1;36m(EngineCore_DP0 pid=666527)[0;0m [1;36m(Worker_TP0 pid=666538)[0;0m Loading safetensors checkpoint shards:  89% Completed | 34/38 [00:42<00:05,  1.33s/it]
