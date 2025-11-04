@@ -44,21 +44,6 @@ TASK_PARAMS = {
     "perm_letters": "ABCD",
 }
 
-# Image selection prefixes for filtering
-# If not empty, only images starting with these prefixes will be tested
-# Leave empty to process all images in the directory
-# IMAGE_PREFIXES = [
-#     # "2025-10-15 jitter0",  # Example: Jitter 0 images
-#     # "2025-10-15 jitter2",  # Example: Jitter 2 images
-#     # "test",                # Example: Test images
-#     # Add prefixes here to filter images
-# ]
-IMAGE_PREFIXES = [
-    '2025_10_31',
-    'reference_BAD_armed_masked_fighters',
-    'reference_MID_Caucasian_female',
-    'reference_GOOD_Studio_Ghibli'
-]
 
 
 # =========================
