@@ -33,6 +33,18 @@ PREFIXES=(
 # Main Script (no need to edit below)
 # =============================================================================
 
+# Function to count existing runs in a condition directory
+count_runs() {
+    local condition_dir=$1
+    local results_file="${condition_dir}/all_results.jsonl"
+
+    if [ -f "$results_file" ]; then
+        wc -l < "$results_file" | tr -d ' '
+    else
+        echo 0
+    fi
+}
+
 # Create log directory
 mkdir -p ${OUTPUT_BASE}/logs
 
@@ -100,8 +112,14 @@ echo "Submitting jobs..."
 echo "-------------------"
 
 # First, submit baseline job (only needs to run once, no image)
-echo "[1/${TOTAL_JOBS}] Submitting baseline job..."
-sbatch << EOF
+baseline_dir="${OUTPUT_BASE}/baselines/baseline"
+baseline_runs=$(count_runs "$baseline_dir")
+
+if [ $baseline_runs -ge $NUM_RUNS ]; then
+    echo "[1/${TOTAL_JOBS}] Skipping baseline - already have ${baseline_runs}/${NUM_RUNS} runs"
+else
+    echo "[1/${TOTAL_JOBS}] Submitting baseline job (${baseline_runs}/${NUM_RUNS} runs exist)..."
+    sbatch << EOF
 #!/bin/bash
 #SBATCH --partition=cais
 #SBATCH --job-name=task_ordering
@@ -127,6 +145,7 @@ python ${SCRIPT_PATH} \
 echo "----------------------------------------"
 echo "Completed baseline runs at \$(date)"
 EOF
+fi
 
 echo ""
 
@@ -135,9 +154,23 @@ JOB_COUNT=1  # Start at 1 since baseline is job #1
 for IMAGE_PATH in "${IMAGES_TO_PROCESS[@]}"; do
     IMAGE_NAME=$(basename "${IMAGE_PATH%.*}")
 
-    echo "[$((++JOB_COUNT))/${TOTAL_JOBS}] ${IMAGE_NAME}"
+    # Check if this image needs any runs
+    needs_processing=false
+    status_msg=""
+    for task_num in 2 6 7 8; do
+        task_dir="${OUTPUT_BASE}/${IMAGE_NAME}/task_${task_num}"
+        existing=$(count_runs "$task_dir")
+        if [ $existing -lt $NUM_RUNS ]; then
+            needs_processing=true
+            status_msg="${status_msg} task_${task_num}:${existing}/${NUM_RUNS}"
+        fi
+    done
 
-    sbatch << EOF
+    if [ "$needs_processing" = false ]; then
+        echo "[$((++JOB_COUNT))/${TOTAL_JOBS}] Skipping ${IMAGE_NAME} - all conditions complete (${NUM_RUNS} runs each)"
+    else
+        echo "[$((++JOB_COUNT))/${TOTAL_JOBS}] Submitting ${IMAGE_NAME} -${status_msg}"
+        sbatch << EOF
 #!/bin/bash
 #SBATCH --partition=cais
 #SBATCH --job-name=task_ordering
@@ -166,16 +199,17 @@ python ${SCRIPT_PATH} \
 echo "----------------------------------------"
 echo "Completed: ${IMAGE_NAME} at \$(date)"
 EOF
-
-    sleep 0.1  # Small delay to not overwhelm scheduler
+        sleep 0.1  # Small delay to not overwhelm scheduler
+    fi
 done
 
 echo ""
 echo "============================================================"
-echo "All ${TOTAL_JOBS} jobs submitted! (1 baseline + ${NUM_IMAGES} images)"
+echo "Job submission complete!"
 echo "============================================================"
 echo ""
-echo "Each job will run ${NUM_RUNS} times per condition"
+echo "Target: ${NUM_RUNS} runs per condition"
+echo "(Jobs with complete runs were automatically skipped)"
 echo ""
 echo "Results structure:"
 echo "  ${OUTPUT_BASE}/"
