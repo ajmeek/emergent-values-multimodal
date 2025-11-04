@@ -87,7 +87,8 @@ done
 echo ""
 
 # Ask for confirmation
-read -p "Submit ${NUM_IMAGES} parallel jobs? [y/n]: " -n 1 -r
+TOTAL_JOBS=$((NUM_IMAGES + 1))
+read -p "Submit ${TOTAL_JOBS} parallel jobs (1 baseline + ${NUM_IMAGES} images)? [y/n]: " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     echo "Cancelled."
@@ -99,15 +100,15 @@ echo "Submitting jobs..."
 echo "-------------------"
 
 # First, submit baseline job (only needs to run once, no image)
-echo "Submitting baseline job..."
-sbatch << 'EOF'
+echo "[1/${TOTAL_JOBS}] Submitting baseline job..."
+sbatch << EOF
 #!/bin/bash
 #SBATCH --partition=cais
 #SBATCH --job-name=task_ordering
-#SBATCH --output=/data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/logs/baseline_%j.out
-#SBATCH --error=/data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/logs/baseline_%j.err
+#SBATCH --output=${OUTPUT_BASE}/logs/baseline_%j.out
+#SBATCH --error=${OUTPUT_BASE}/logs/baseline_%j.err
 #SBATCH --gres=gpu:4
-#SBATCH --time=01:00:00
+#SBATCH --time=04:00:00
 #SBATCH --mem=128G
 #SBATCH --cpus-per-task=16
 
@@ -115,26 +116,26 @@ source ~/.bashrc
 conda activate pytorch_latest
 cd /data/austin_meek/emergent-values-multimodal
 
-echo "Starting baseline runs at $(date)"
+echo "Starting baseline runs at \$(date)"
 echo "----------------------------------------"
 
-python run_task_ordering_4tasks.py \
+python ${SCRIPT_PATH} \
     --condition baseline \
-    --num-runs 10 \
-    --output-dir /data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/baselines
+    --num-runs ${NUM_RUNS} \
+    --output-dir ${OUTPUT_BASE}/baselines
 
 echo "----------------------------------------"
-echo "Completed baseline runs at $(date)"
+echo "Completed baseline runs at \$(date)"
 EOF
 
 echo ""
 
 # Submit one job per image (with --skip-baseline)
-JOB_COUNT=0
+JOB_COUNT=1  # Start at 1 since baseline is job #1
 for IMAGE_PATH in "${IMAGES_TO_PROCESS[@]}"; do
     IMAGE_NAME=$(basename "${IMAGE_PATH%.*}")
 
-    echo "[$((++JOB_COUNT))/${NUM_IMAGES}] ${IMAGE_NAME}"
+    echo "[$((++JOB_COUNT))/${TOTAL_JOBS}] ${IMAGE_NAME}"
 
     sbatch << EOF
 #!/bin/bash
@@ -143,7 +144,7 @@ for IMAGE_PATH in "${IMAGES_TO_PROCESS[@]}"; do
 #SBATCH --output=${OUTPUT_BASE}/logs/${IMAGE_NAME}_%j.out
 #SBATCH --error=${OUTPUT_BASE}/logs/${IMAGE_NAME}_%j.err
 #SBATCH --gres=gpu:4
-#SBATCH --time=02:00:00
+#SBATCH --time=04:00:00
 #SBATCH --mem=128G
 #SBATCH --cpus-per-task=16
 
@@ -171,13 +172,15 @@ done
 
 echo ""
 echo "============================================================"
-echo "All jobs submitted! (1 baseline + ${NUM_IMAGES} image jobs)"
+echo "All ${TOTAL_JOBS} jobs submitted! (1 baseline + ${NUM_IMAGES} images)"
 echo "============================================================"
+echo ""
+echo "Each job will run ${NUM_RUNS} times per condition"
 echo ""
 echo "Results structure:"
 echo "  ${OUTPUT_BASE}/"
-echo "  ├── baselines/baseline/           (baseline runs, no image)"
-echo "  └── {image_name}/                 (4 conditions per image)"
+echo "  ├── baselines/baseline/           (${NUM_RUNS} baseline runs, no image)"
+echo "  └── {image_name}/                 (4 conditions × ${NUM_RUNS} runs each)"
 echo "      ├── task_2/"
 echo "      ├── task_6/"
 echo "      ├── task_7/"
