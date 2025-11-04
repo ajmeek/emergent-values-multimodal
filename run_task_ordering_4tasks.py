@@ -513,7 +513,7 @@ def main():
 
         # Extract image name for output directory
         image_name = Path(args.image_path).stem
-        base_output_dir = os.path.join(args.output_dir, f"single_test_{image_name}")
+        base_output_dir = os.path.join(args.output_dir, image_name)
         os.makedirs(base_output_dir, exist_ok=True)
 
         # All conditions to test

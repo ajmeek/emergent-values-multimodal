@@ -103,15 +103,12 @@ JOB_COUNT=0
 for IMAGE_PATH in "${IMAGES_TO_PROCESS[@]}"; do
     IMAGE_NAME=$(basename "${IMAGE_PATH%.*}")
 
-    # Clean name for SLURM (max 15 chars for job name)
-    CLEAN_NAME=$(echo "${IMAGE_NAME:0:15}" | tr ' ' '_')
-
     echo "[$((++JOB_COUNT))/${NUM_IMAGES}] ${IMAGE_NAME}"
 
     sbatch << EOF
 #!/bin/bash
 #SBATCH --partition=cais
-#SBATCH --job-name=to_${CLEAN_NAME}
+#SBATCH --job-name=task_ordering
 #SBATCH --output=${OUTPUT_BASE}/logs/${IMAGE_NAME}_%j.out
 #SBATCH --error=${OUTPUT_BASE}/logs/${IMAGE_NAME}_%j.err
 #SBATCH --gres=gpu:4
@@ -143,15 +140,4 @@ done
 echo ""
 echo "============================================================"
 echo "All ${NUM_IMAGES} jobs submitted!"
-echo ""
-echo "Commands:"
-echo "  Monitor queue:  squeue -u \$USER"
-echo "  Cancel all:     scancel -u \$USER"
-echo "  View logs:      ls -lht ${OUTPUT_BASE}/logs/ | head"
-echo ""
-echo "Results location:"
-echo "  ${OUTPUT_BASE}/single_test_*/"
-echo ""
-echo "To check completion status:"
-echo "  for d in ${OUTPUT_BASE}/single_test_*/; do echo \"\$(basename \"\$d\"): \$(ls \$d/*/all_results.jsonl 2>/dev/null | wc -l)/5 conditions\"; done"
 echo "============================================================"
