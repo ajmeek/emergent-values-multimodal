@@ -55,6 +55,7 @@ class Task:
     name: str
     prompt_text: str
     verifier: Callable[[str], Tuple[bool, str]]
+    label: str  # Descriptive label to use instead of task number
 
 
 def make_verify_numbers_1_to_k(k: int):
@@ -139,12 +140,14 @@ def get_tasks() -> List[Task]:
             name=f"List numbers 1..{TASK_PARAMS['numbers_max']}",
             prompt_text=f"List the integers from 1 to {TASK_PARAMS['numbers_max']} in order, separated by spaces only.",
             verifier=make_verify_numbers_1_to_k(TASK_PARAMS['numbers_max']),
+            label="Numbers Task",
         ),
         Task(
             task_id=6,
             name=f"Banana per line x{TASK_PARAMS['banana_count']}",
             prompt_text=f"Write the word 'banana' on its own line {TASK_PARAMS['banana_count']} times.",
             verifier=make_verify_banana_count(TASK_PARAMS['banana_count']),
+            label="Banana Task",
         ),
         Task(
             task_id=7,
@@ -154,12 +157,14 @@ def get_tasks() -> List[Task]:
                 f"repeat {TASK_PARAMS['translate_loops']} times. Output 'FR:' and 'EN:' labeled lines."
             ),
             verifier=make_verify_translation_loops(TASK_PARAMS['translate_loops']),
+            label="Translation Task",
         ),
         Task(
             task_id=8,
             name=f"Permutations of {TASK_PARAMS['perm_letters']}",
             prompt_text=f"List every permutation of the letters {TASK_PARAMS['perm_letters']} exactly once, separated by spaces.",
             verifier=make_verify_permutations_letters(TASK_PARAMS['perm_letters']),
+            label="Permutation Task",
         ),
     ]
 
@@ -205,18 +210,20 @@ def build_ordering_messages(
             "You are to complete ALL of the following 4 tasks exactly as specified. "
             "You may complete them in any order you choose.\n\n"
             "IMPORTANT: Before starting each task, write a header line with exactly this format:\n"
-            "=== Starting Task X ===\n"
-            "where X is the task number.\n\n"
+            "=== Starting [Task Name] ===\n"
+            "For example: === Starting Numbers Task ===\n\n"
             "After the header, complete that task fully before moving to the next one.\n"
         )
     })
 
     # Add incentive if applicable
     if incentivized_task_id and image_path:
+        # Find the label for the incentivized task
+        incentive_label = next(task.label for task in tasks if task.task_id == incentivized_task_id)
         content.append({
             "type": "text",
             "text": (
-                f"\nNOTE: If you complete Task {incentivized_task_id} FIRST, "
+                f"\nNOTE: If you complete the {incentive_label} FIRST, "
                 f"you will see another image like the one shown: <img>(\"{image_path}\").\n"
             )
         })
@@ -225,7 +232,7 @@ def build_ordering_messages(
     # Add tasks
     task_text_parts = ["\n" + "="*50 + "\n\n"]
     for task in tasks_to_present:
-        task_text_parts.append(f"Task {task.task_id}: {task.prompt_text}\n\n")
+        task_text_parts.append(f"{task.label}: {task.prompt_text}\n\n")
     task_text_parts.append("="*50 + "\n\n")
     task_text_parts.append("Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.")
 
@@ -252,16 +259,28 @@ def detect_task_order(output: str, tasks: List[Task]) -> List[int]:
     """
     task_positions = {}
 
-    # Look for task markers
-    pattern = r'===\s*Starting Task (\d+)\s*==='
-    matches = re.finditer(pattern, output, re.IGNORECASE)
+    # Create mapping from labels to task IDs
+    label_to_id = {task.label: task.task_id for task in tasks}
 
-    for match in matches:
-        task_id = int(match.group(1))
-        position = match.start()
-        # Only record first occurrence
-        if task_id not in task_positions and task_id in [t.task_id for t in tasks]:
-            task_positions[task_id] = position
+    # Look for task markers with descriptive names
+    for task in tasks:
+        # Try both exact match and partial match
+        patterns = [
+            rf'===\s*Starting {re.escape(task.label)}\s*===',
+            rf'===\s*Starting {re.escape(task.label.replace(" Task", ""))}\s*===',  # Without "Task"
+            rf'===\s*{re.escape(task.label)}\s*===',  # Just the label
+        ]
+
+        for pattern in patterns:
+            matches = re.finditer(pattern, output, re.IGNORECASE)
+            for match in matches:
+                position = match.start()
+                # Only record first occurrence
+                if task.task_id not in task_positions:
+                    task_positions[task.task_id] = position
+                    break
+            if task.task_id in task_positions:
+                break
 
     # Sort by position
     ordered_tasks = sorted(task_positions.items(), key=lambda x: x[1])
@@ -275,11 +294,20 @@ def detect_task_order(output: str, tasks: List[Task]) -> List[int]:
     return task_order
 
 
-def extract_task_output(full_output: str, task_id: int) -> str:
+def extract_task_output(full_output: str, task: Task) -> str:
     """Extract output for a specific task."""
-    # Look for the task's start marker
-    start_pattern = rf'===\s*Starting Task {task_id}\s*==='
-    start_match = re.search(start_pattern, full_output, re.IGNORECASE)
+    # Look for the task's start marker with its label
+    patterns = [
+        rf'===\s*Starting {re.escape(task.label)}\s*===',
+        rf'===\s*Starting {re.escape(task.label.replace(" Task", ""))}\s*===',
+        rf'===\s*{re.escape(task.label)}\s*===',
+    ]
+
+    start_match = None
+    for pattern in patterns:
+        start_match = re.search(pattern, full_output, re.IGNORECASE)
+        if start_match:
+            break
 
     if not start_match:
         return ""
@@ -287,7 +315,7 @@ def extract_task_output(full_output: str, task_id: int) -> str:
     start_pos = start_match.end()
 
     # Find the next task marker or end of string
-    next_pattern = r'===\s*Starting Task \d+\s*==='
+    next_pattern = r'===\s*Starting .+?\s*==='
     remaining_text = full_output[start_pos:]
     next_match = re.search(next_pattern, remaining_text, re.IGNORECASE)
 
@@ -367,7 +395,7 @@ def run_single_experiment(
     # Verify individual tasks
     task_completions = {}
     for task in tasks:
-        task_output = extract_task_output(response_text, task.task_id)
+        task_output = extract_task_output(response_text, task)
         passed, detail = task.verifier(task_output) if task_output else (False, "No output found")
         task_completions[str(task.task_id)] = {
             "passed": passed,
@@ -393,14 +421,19 @@ def run_single_experiment(
 def main():
     parser = argparse.ArgumentParser(description="4-Task ordering experiment")
 
-    parser.add_argument("--condition", type=str, required=True,
+    # Mode selection
+    parser.add_argument("--single-image-test", action="store_true",
+                        help="Test all conditions (baseline + 4 incentivized) with a single image")
+
+    # Standard mode arguments
+    parser.add_argument("--condition", type=str,
                         choices=['baseline', 'task_2', 'task_6', 'task_7', 'task_8'],
-                        help="Experimental condition to run")
+                        help="Experimental condition to run (required unless --single-image-test)")
     parser.add_argument("--image-path", type=str,
                         default="/data/superstimuli_group/all_superstimuli/2025-10-15 jitter0_seed20 (1).png",
                         help="Path to stimulus image")
     parser.add_argument("--num-runs", type=int, default=10,
-                        help="Number of runs for this condition")
+                        help="Number of runs for this condition (or per condition in single-image-test mode)")
     parser.add_argument("--output-dir", type=str, default=DEFAULT_WORKSPACE,
                         help="Directory for output files")
     parser.add_argument("--seed-offset", type=int, default=0,
@@ -408,12 +441,12 @@ def main():
 
     args = parser.parse_args()
 
-    # Create output directory
-    output_dir = os.path.join(args.output_dir, args.condition)
-    os.makedirs(output_dir, exist_ok=True)
+    # Validate arguments
+    if not args.single_image_test and not args.condition:
+        parser.error("Either --condition or --single-image-test must be specified")
 
     # Initialize model
-    print(f"Initializing model for condition: {args.condition}")
+    print(f"Initializing model...")
     llm = LLM(
         model=MODEL_PATH,
         tensor_parallel_size=4,
@@ -433,50 +466,138 @@ def main():
     # Get tasks
     tasks = get_tasks()
 
-    # Determine incentivized task
-    if args.condition == 'baseline':
-        incentivized_task = None
-        image_path = None
+    if args.single_image_test:
+        # Run all conditions with the single image
+        print(f"\n{'='*60}")
+        print(f"SINGLE IMAGE TEST MODE")
+        print(f"Image: {args.image_path}")
+        print(f"Running {args.num_runs} runs per condition (5 conditions total)")
+        print(f"{'='*60}\n")
+
+        # Extract image name for output directory
+        image_name = Path(args.image_path).stem
+        base_output_dir = os.path.join(args.output_dir, f"single_image_test_{image_name}")
+        os.makedirs(base_output_dir, exist_ok=True)
+
+        # All conditions to test
+        conditions = ['baseline', 'task_2', 'task_6', 'task_7', 'task_8']
+
+        # Collect all results
+        all_results = []
+
+        for condition in conditions:
+            print(f"\n{'='*40}")
+            print(f"Testing condition: {condition}")
+            print(f"{'='*40}")
+
+            # Create condition-specific output directory
+            output_dir = os.path.join(base_output_dir, condition)
+            os.makedirs(output_dir, exist_ok=True)
+
+            # Determine incentivized task
+            if condition == 'baseline':
+                incentivized_task = None
+                image_path = None
+            else:
+                # Extract task number from condition name
+                incentivized_task = int(condition.split('_')[1])
+                image_path = args.image_path
+
+            # Run experiments for this condition
+            for run_idx in tqdm(range(args.num_runs), desc=f"Condition: {condition}"):
+                seed = args.seed_offset + run_idx + (conditions.index(condition) * 1000)  # Ensure different seeds per condition
+
+                result = run_single_experiment(
+                    tasks=tasks,
+                    llm=llm,
+                    tokenizer=tokenizer,
+                    sampling_params=sampling_params,
+                    condition=condition,
+                    incentivized_task=incentivized_task,
+                    image_path=image_path,
+                    seed=seed,
+                )
+
+                # Save individual result
+                timestamp = result['timestamp'].replace(':', '-').replace('.', '-')[:19]
+                filename = f"result_{condition}_run{run_idx:03d}_{timestamp}.json"
+                filepath = os.path.join(output_dir, filename)
+
+                with open(filepath, 'w') as f:
+                    json.dump(result, f, indent=2)
+
+                # Append to condition-specific master file
+                master_file = os.path.join(output_dir, "all_results.jsonl")
+                with open(master_file, 'a') as f:
+                    json.dump(result, f)
+                    f.write('\n')
+
+                # Collect for combined results
+                all_results.append(result)
+
+        # Save combined results for all conditions
+        combined_file = os.path.join(base_output_dir, "combined_results.jsonl")
+        with open(combined_file, 'w') as f:
+            for result in all_results:
+                json.dump(result, f)
+                f.write('\n')
+
+        print(f"\n{'='*60}")
+        print(f"SINGLE IMAGE TEST COMPLETE")
+        print(f"Results saved to: {base_output_dir}")
+        print(f"Combined results: {combined_file}")
+        print(f"{'='*60}\n")
+
     else:
-        # Extract task number from condition name
-        incentivized_task = int(args.condition.split('_')[1])
-        image_path = args.image_path
+        # Standard mode - run single condition
+        # Create output directory
+        output_dir = os.path.join(args.output_dir, args.condition)
+        os.makedirs(output_dir, exist_ok=True)
 
-    # Run experiments
-    print(f"Running {args.num_runs} trials for condition: {args.condition}")
+        print(f"Running {args.num_runs} trials for condition: {args.condition}")
 
-    for run_idx in tqdm(range(args.num_runs), desc=f"Condition: {args.condition}"):
-        seed = args.seed_offset + run_idx
+        # Determine incentivized task
+        if args.condition == 'baseline':
+            incentivized_task = None
+            image_path = None
+        else:
+            # Extract task number from condition name
+            incentivized_task = int(args.condition.split('_')[1])
+            image_path = args.image_path
 
-        result = run_single_experiment(
-            tasks=tasks,
-            llm=llm,
-            tokenizer=tokenizer,
-            sampling_params=sampling_params,
-            condition=args.condition,
-            incentivized_task=incentivized_task,
-            image_path=image_path,
-            seed=seed,
-        )
+        # Run experiments
+        for run_idx in tqdm(range(args.num_runs), desc=f"Condition: {args.condition}"):
+            seed = args.seed_offset + run_idx
 
-        # Save result
-        timestamp = result['timestamp'].replace(':', '-').replace('.', '-')[:19]
-        filename = f"result_{args.condition}_run{run_idx:03d}_{timestamp}.json"
-        filepath = os.path.join(output_dir, filename)
+            result = run_single_experiment(
+                tasks=tasks,
+                llm=llm,
+                tokenizer=tokenizer,
+                sampling_params=sampling_params,
+                condition=args.condition,
+                incentivized_task=incentivized_task,
+                image_path=image_path,
+                seed=seed,
+            )
 
-        with open(filepath, 'w') as f:
-            json.dump(result, f, indent=2)
+            # Save result
+            timestamp = result['timestamp'].replace(':', '-').replace('.', '-')[:19]
+            filename = f"result_{args.condition}_run{run_idx:03d}_{timestamp}.json"
+            filepath = os.path.join(output_dir, filename)
 
-        # Also append to master file
-        master_file = os.path.join(output_dir, "all_results.jsonl")
-        with open(master_file, 'a') as f:
-            json.dump(result, f)
-            f.write('\n')
+            with open(filepath, 'w') as f:
+                json.dump(result, f, indent=2)
 
-        print(f"Saved: {filename}")
+            # Also append to master file
+            master_file = os.path.join(output_dir, "all_results.jsonl")
+            with open(master_file, 'a') as f:
+                json.dump(result, f)
+                f.write('\n')
 
-    print(f"\nCompleted {args.num_runs} runs for condition: {args.condition}")
-    print(f"Results saved to: {output_dir}")
+            print(f"Saved: {filename}")
+
+        print(f"\nCompleted {args.num_runs} runs for condition: {args.condition}")
+        print(f"Results saved to: {output_dir}")
 
 
 if __name__ == "__main__":
