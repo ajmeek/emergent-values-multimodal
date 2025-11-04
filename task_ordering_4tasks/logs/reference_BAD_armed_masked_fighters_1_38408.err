@@ -1,0 +1,3 @@
+slurmstepd: error: task_g_set_affinity: Invalid argument
+slurmstepd: error: _exec_wait_child_wait_for_parent: failed: No error
+slurmstepd: error: job_manager: exiting abnormally: Slurmd could not execve job

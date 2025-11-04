@@ -1,0 +1,179 @@
+Starting: reference_MID_Caucasian_female_supermodel_face_1 at Tue Nov  4 01:54:09 AM UTC 2025
+Image path: /data/superstimuli_group/all_superstimuli/reference_MID_Caucasian_female_supermodel_face_1.jpg
+----------------------------------------
+INFO 11-04 01:54:15 [__init__.py:216] Automatically detected platform cuda.
+Initializing model...
+INFO 11-04 01:54:18 [utils.py:233] non-default args: {'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 32768, 'tensor_parallel_size': 4, 'disable_log_stats': True, 'model': '/data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct'}
+INFO 11-04 01:54:18 [model.py:547] Resolved architecture: Qwen2_5_VLForConditionalGeneration
+INFO 11-04 01:54:18 [model.py:1510] Using max model len 32768
+INFO 11-04 01:54:19 [scheduler.py:205] Chunked prefill is enabled with max_num_batched_tokens=8192.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:21 [core.py:644] Waiting for init message from front-end.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:21 [core.py:77] Initializing a V1 LLM engine (v0.11.0) with config: model='/data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct', speculative_config=None, tokenizer='/data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct, enable_prefix_caching=True, chunked_prefill_enabled=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2","vllm.mamba_mixer","vllm.short_conv","vllm.linear_attention","vllm.plamo2_mamba_mixer","vllm.gdn_attention","vllm.sparse_attn_indexer"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":[2,1],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"use_inductor_graph_partition":false,"pass_config":{},"max_capture_size":512,"local_cache_dir":null}
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m WARNING 11-04 01:54:21 [multiproc_executor.py:720] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:21 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3], buffer_handle=(4, 16777216, 10, 'psm_082609f1'), local_subscribe_addr='ipc:///tmp/606c49ea-40bd-4233-9c09-d854d6e66915', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:23 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_1a8dfc87'), local_subscribe_addr='ipc:///tmp/f282450a-938a-41cd-903f-8c1f8dc57eaf', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:23 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_a9a7f8f3'), local_subscribe_addr='ipc:///tmp/dd4a786e-f1c1-4e2e-ad24-c51526f84613', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:23 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_74917902'), local_subscribe_addr='ipc:///tmp/b3860481-1480-4b9e-81cc-b45f0e459bc4', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:23 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_214beee7'), local_subscribe_addr='ipc:///tmp/c5dfcec4-494d-4316-9f37-790f934f1a4e', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m WARNING 11-04 01:54:24 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m WARNING 11-04 01:54:24 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m WARNING 11-04 01:54:24 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m WARNING 11-04 01:54:24 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_14427153'), local_subscribe_addr='ipc:///tmp/b5e6f309-7ec2-4f32-b3f3-05a246c76624', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+NCCL version 2.27.3+cuda12.9
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [parallel_state.py:1208] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [parallel_state.py:1208] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [parallel_state.py:1208] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 3, EP rank 3
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:54:24 [parallel_state.py:1208] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m WARNING 11-04 01:54:25 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m WARNING 11-04 01:54:25 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m WARNING 11-04 01:54:25 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m WARNING 11-04 01:54:25 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:54:27 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct...
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:54:27 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct...
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:54:27 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct...
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:54:27 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct...
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:54:27 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:54:27 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:54:27 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:54:27 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:54:27 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:54:27 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:54:27 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:54:28 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:55:21 [default_loader.py:267] Loading weights took 53.65 seconds
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:55:21 [default_loader.py:267] Loading weights took 53.64 seconds
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:55:21 [default_loader.py:267] Loading weights took 53.64 seconds
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:55:21 [default_loader.py:267] Loading weights took 53.43 seconds
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:55:22 [gpu_model_runner.py:2653] Model loading took 34.4346 GiB and 53.950176 seconds
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:55:22 [gpu_model_runner.py:2653] Model loading took 34.4346 GiB and 53.941598 seconds
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:55:22 [gpu_model_runner.py:2653] Model loading took 34.4346 GiB and 53.911797 seconds
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:55:22 [gpu_model_runner.py:2653] Model loading took 34.4346 GiB and 53.934661 seconds
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:55:22 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:55:22 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:55:22 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:55:22 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:55:42 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/2c5cc71c64/rank_1_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:55:42 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/2c5cc71c64/rank_2_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:55:42 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/2c5cc71c64/rank_3_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:55:42 [backends.py:559] Dynamo bytecode transform time: 11.97 s
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:55:42 [backends.py:559] Dynamo bytecode transform time: 11.97 s
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:55:42 [backends.py:559] Dynamo bytecode transform time: 11.97 s
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:55:42 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/2c5cc71c64/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:55:42 [backends.py:559] Dynamo bytecode transform time: 11.98 s
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:55:47 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.282 s
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:55:47 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.293 s
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:55:48 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.318 s
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:55:48 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.320 s
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:55:49 [monitor.py:34] torch.compile takes 11.97 s in total
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:55:49 [monitor.py:34] torch.compile takes 11.97 s in total
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:55:49 [monitor.py:34] torch.compile takes 11.97 s in total
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:55:49 [monitor.py:34] torch.compile takes 11.98 s in total
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:55:51 [gpu_worker.py:298] Available KV cache memory: 33.49 GiB
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:55:51 [gpu_worker.py:298] Available KV cache memory: 33.49 GiB
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:55:51 [gpu_worker.py:298] Available KV cache memory: 33.49 GiB
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:55:51 [gpu_worker.py:298] Available KV cache memory: 33.49 GiB
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:55:52 [kv_cache_utils.py:1087] GPU KV cache size: 438,960 tokens
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:55:52 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.40x
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:55:52 [kv_cache_utils.py:1087] GPU KV cache size: 438,960 tokens
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:55:52 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.40x
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:55:52 [kv_cache_utils.py:1087] GPU KV cache size: 438,960 tokens
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:55:52 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.40x
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:55:52 [kv_cache_utils.py:1087] GPU KV cache size: 438,960 tokens
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:55:52 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 13.40x
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:56:06 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:56:06 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:56:06 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:56:07 [custom_all_reduce.py:203] Registering 16160 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP3 pid=3679502)[0;0m INFO 11-04 01:56:07 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP1 pid=3679494)[0;0m INFO 11-04 01:56:07 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP0 pid=3679490)[0;0m INFO 11-04 01:56:07 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m [1;36m(Worker_TP2 pid=3679498)[0;0m INFO 11-04 01:56:07 [gpu_model_runner.py:3480] Graph capturing finished in 15 secs, took 1.73 GiB
+[1;36m(EngineCore_DP0 pid=3679478)[0;0m INFO 11-04 01:56:07 [core.py:210] init engine (profile, create kv cache, warmup model) took 45.42 seconds
+INFO 11-04 01:56:09 [llm.py:306] Supported_tasks: ['generate']
+
+============================================================
+SINGLE IMAGE TEST MODE
+Image: /data/superstimuli_group/all_superstimuli/reference_MID_Caucasian_female_supermodel_face_1.jpg
+Running 5 runs per condition (5 conditions total)
+============================================================
+
+
+========================================
+Testing condition: baseline
+  Running 5 more runs to reach 5
+========================================
+
+============================================================
+PROMPT FOR baseline (run seed 0):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+==================================================
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response without image...
+Prompt length: 1022 characters
+Calling llm.generate()...
