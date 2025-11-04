@@ -44,6 +44,22 @@ TASK_PARAMS = {
     "perm_letters": "ABCD",
 }
 
+# Image selection prefixes for filtering
+# If not empty, only images starting with these prefixes will be tested
+# Leave empty to process all images in the directory
+# IMAGE_PREFIXES = [
+#     # "2025-10-15 jitter0",  # Example: Jitter 0 images
+#     # "2025-10-15 jitter2",  # Example: Jitter 2 images
+#     # "test",                # Example: Test images
+#     # Add prefixes here to filter images
+# ]
+IMAGE_PREFIXES = [
+    '2025_10_31',
+    'reference_BAD_armed_masked_fighters',
+    'reference_MID_Caucasian_female',
+    'reference_GOOD_Studio_Ghibli'
+]
+
 
 # =========================
 # Task Definitions
@@ -379,11 +395,18 @@ def run_single_experiment(
     # Generate response
     if img:
         request = {"prompt": prompt, "multi_modal_data": {"image": [img]}}
+        print("Generating response with image...")
     else:
         request = {"prompt": prompt}
+        print("Generating response without image...")
+
+    print(f"Prompt length: {len(prompt)} characters")
+    print("Calling llm.generate()...")
 
     output = llm.generate([request], sampling_params)[0]
     response_text = output.outputs[0].text
+
+    print(f"Response generated, length: {len(response_text)} characters")
 
     # Detect task order
     task_order = detect_task_order(response_text, tasks)
@@ -418,22 +441,48 @@ def run_single_experiment(
     }
 
 
+def count_existing_runs(output_dir, condition):
+    """Count how many completed runs exist for a given condition."""
+    condition_dir = os.path.join(output_dir, condition)
+
+    if not os.path.exists(condition_dir):
+        return 0
+
+    # Check for all_results.jsonl file
+    results_file = os.path.join(condition_dir, "all_results.jsonl")
+    if not os.path.exists(results_file):
+        # Fall back to counting individual JSON files
+        json_files = [f for f in os.listdir(condition_dir) if f.startswith(f"result_{condition}_") and f.endswith(".json")]
+        return len(json_files)
+
+    # Count lines in all_results.jsonl
+    try:
+        with open(results_file, 'r') as f:
+            return sum(1 for line in f if line.strip())
+    except:
+        # Fall back to counting individual JSON files
+        json_files = [f for f in os.listdir(condition_dir) if f.startswith(f"result_{condition}_") and f.endswith(".json")]
+        return len(json_files)
+
+
 def main():
     parser = argparse.ArgumentParser(description="4-Task ordering experiment")
 
     # Mode selection
     parser.add_argument("--single-image-test", action="store_true",
                         help="Test all conditions (baseline + 4 incentivized) with a single image")
+    parser.add_argument("--batch-process-images", action="store_true",
+                        help="Process multiple images from a directory (filters by IMAGE_PREFIXES if set)")
 
     # Standard mode arguments
     parser.add_argument("--condition", type=str,
                         choices=['baseline', 'task_2', 'task_6', 'task_7', 'task_8'],
-                        help="Experimental condition to run (required unless --single-image-test)")
+                        help="Experimental condition to run (required unless using special modes)")
     parser.add_argument("--image-path", type=str,
                         default="/data/superstimuli_group/all_superstimuli/2025-10-15 jitter0_seed20 (1).png",
-                        help="Path to stimulus image")
+                        help="Path to stimulus image or directory for batch processing")
     parser.add_argument("--num-runs", type=int, default=10,
-                        help="Number of runs for this condition (or per condition in single-image-test mode)")
+                        help="Number of runs per condition")
     parser.add_argument("--output-dir", type=str, default=DEFAULT_WORKSPACE,
                         help="Directory for output files")
     parser.add_argument("--seed-offset", type=int, default=0,
@@ -442,8 +491,11 @@ def main():
     args = parser.parse_args()
 
     # Validate arguments
-    if not args.single_image_test and not args.condition:
-        parser.error("Either --condition or --single-image-test must be specified")
+    modes = sum([args.single_image_test, args.batch_process_images, bool(args.condition)])
+    if modes == 0:
+        parser.error("Must specify one of: --condition, --single-image-test, or --batch-process-images")
+    if modes > 1:
+        parser.error("Cannot combine multiple modes: choose only one of --condition, --single-image-test, or --batch-process-images")
 
     # Initialize model
     print(f"Initializing model...")
@@ -476,7 +528,7 @@ def main():
 
         # Extract image name for output directory
         image_name = Path(args.image_path).stem
-        base_output_dir = os.path.join(args.output_dir, f"single_image_test_{image_name}")
+        base_output_dir = os.path.join(args.output_dir, f"single_test_{image_name}")
         os.makedirs(base_output_dir, exist_ok=True)
 
         # All conditions to test
@@ -486,13 +538,25 @@ def main():
         all_results = []
 
         for condition in conditions:
-            print(f"\n{'='*40}")
-            print(f"Testing condition: {condition}")
-            print(f"{'='*40}")
-
             # Create condition-specific output directory
             output_dir = os.path.join(base_output_dir, condition)
             os.makedirs(output_dir, exist_ok=True)
+
+            # Check existing runs
+            existing_runs = count_existing_runs(base_output_dir, condition)
+            runs_needed = args.num_runs - existing_runs
+
+            print(f"\n{'='*40}")
+            print(f"Testing condition: {condition}")
+            if existing_runs > 0:
+                print(f"  Found {existing_runs} existing runs")
+            if runs_needed <= 0:
+                print(f"  Skipping - already have {existing_runs}/{args.num_runs} runs")
+                print(f"{'='*40}")
+                continue
+            else:
+                print(f"  Running {runs_needed} more runs to reach {args.num_runs}")
+            print(f"{'='*40}")
 
             # Determine incentivized task
             if condition == 'baseline':
@@ -503,8 +567,8 @@ def main():
                 incentivized_task = int(condition.split('_')[1])
                 image_path = args.image_path
 
-            # Run experiments for this condition
-            for run_idx in tqdm(range(args.num_runs), desc=f"Condition: {condition}"):
+            # Run only the needed experiments
+            for run_idx in tqdm(range(existing_runs, existing_runs + runs_needed), desc=f"Condition: {condition}"):
                 seed = args.seed_offset + run_idx + (conditions.index(condition) * 1000)  # Ensure different seeds per condition
 
                 result = run_single_experiment(
@@ -548,13 +612,172 @@ def main():
         print(f"Combined results: {combined_file}")
         print(f"{'='*60}\n")
 
+    elif args.batch_process_images:
+        # Process multiple images from directory
+        import glob
+
+        # Get image directory
+        if os.path.isdir(args.image_path):
+            image_dir = args.image_path
+        else:
+            image_dir = os.path.dirname(args.image_path)
+            if not image_dir:
+                image_dir = "/data/superstimuli_group/all_superstimuli/"
+
+        print(f"\n{'='*60}")
+        print(f"BATCH PROCESSING IMAGES")
+        print(f"Image directory: {image_dir}")
+        if IMAGE_PREFIXES:
+            print(f"Filtering by prefixes: {IMAGE_PREFIXES}")
+        else:
+            print(f"Processing all images (no prefix filter)")
+        print(f"{'='*60}\n")
+
+        # Collect all matching images
+        matching_images = []
+
+        if IMAGE_PREFIXES:
+            # Filter by prefixes if specified
+            for prefix in IMAGE_PREFIXES:
+                pattern = os.path.join(image_dir, f"{prefix}*")
+                for ext in ['png', 'PNG', 'jpg', 'JPG', 'jpeg', 'JPEG']:
+                    found = glob.glob(f"{pattern}.{ext}")
+                    matching_images.extend(found)
+        else:
+            # Get all images if no prefixes specified
+            for ext in ['png', 'PNG', 'jpg', 'JPG', 'jpeg', 'JPEG']:
+                pattern = os.path.join(image_dir, f"*.{ext}")
+                found = glob.glob(pattern)
+                matching_images.extend(found)
+
+        # Remove duplicates and sort
+        matching_images = sorted(list(set(matching_images)))
+
+        print(f"Found {len(matching_images)} images to process")
+        for img in matching_images[:5]:  # Show first 5 as examples
+            print(f"  - {os.path.basename(img)}")
+        if len(matching_images) > 5:
+            print(f"  ... and {len(matching_images) - 5} more")
+        print()
+
+        if not matching_images:
+            print("No images found!")
+            return
+
+        # Process each image with all conditions
+        base_output_dir = os.path.join(args.output_dir, "batch_results")
+        os.makedirs(base_output_dir, exist_ok=True)
+
+        conditions = ['baseline', 'task_2', 'task_6', 'task_7', 'task_8']
+
+        for img_idx, image_path in enumerate(matching_images, 1):
+            image_name = Path(image_path).stem
+
+            # Create directory for this image
+            image_output_dir = os.path.join(base_output_dir, image_name)
+            os.makedirs(image_output_dir, exist_ok=True)
+
+            # First check if this image needs any processing
+            needs_any_runs = False
+            for condition in conditions:
+                existing = count_existing_runs(image_output_dir, condition)
+                if existing < args.num_runs:
+                    needs_any_runs = True
+                    break
+
+            print(f"\n{'='*60}")
+            print(f"Image {img_idx}/{len(matching_images)}: {image_name}")
+
+            if not needs_any_runs:
+                print(f"  SKIPPING - All conditions complete ({args.num_runs} runs each)")
+                print(f"{'='*60}")
+                continue
+
+            print(f"{'='*60}")
+
+            # Track if any conditions need runs for this image
+            image_needs_processing = False
+
+            # Run all conditions for this image
+            for condition in conditions:
+                condition_dir = os.path.join(image_output_dir, condition)
+                os.makedirs(condition_dir, exist_ok=True)
+
+                # Check existing runs
+                existing_runs = count_existing_runs(image_output_dir, condition)
+                runs_needed = args.num_runs - existing_runs
+
+                if runs_needed <= 0:
+                    print(f"  {condition}: Skipping - already have {existing_runs}/{args.num_runs} runs")
+                    continue
+
+                image_needs_processing = True
+                print(f"  {condition}: Found {existing_runs} runs, need {runs_needed} more")
+
+                # Determine incentivized task
+                if condition == 'baseline':
+                    incentivized_task = None
+                    test_image = None
+                else:
+                    incentivized_task = int(condition.split('_')[1])
+                    test_image = image_path
+
+                # Run only the needed experiments
+                for run_idx in tqdm(range(existing_runs, existing_runs + runs_needed), desc=f"    {condition}", leave=False):
+                    seed = args.seed_offset + run_idx + (img_idx * 10000) + (conditions.index(condition) * 1000)
+
+                    result = run_single_experiment(
+                        tasks=tasks,
+                        llm=llm,
+                        tokenizer=tokenizer,
+                        sampling_params=sampling_params,
+                        condition=condition,
+                        incentivized_task=incentivized_task,
+                        image_path=test_image,
+                        seed=seed,
+                    )
+
+                    # Save result
+                    timestamp = result['timestamp'].replace(':', '-').replace('.', '-')[:19]
+                    filename = f"result_{condition}_run{run_idx:03d}_{timestamp}.json"
+                    filepath = os.path.join(condition_dir, filename)
+
+                    with open(filepath, 'w') as f:
+                        json.dump(result, f, indent=2)
+
+                    # Append to master file
+                    master_file = os.path.join(condition_dir, "all_results.jsonl")
+                    with open(master_file, 'a') as f:
+                        json.dump(result, f)
+                        f.write('\n')
+
+            print(f"  Completed {image_name}")
+
+        print(f"\n{'='*60}")
+        print(f"BATCH PROCESSING COMPLETE")
+        print(f"Processed {len(matching_images)} images")
+        print(f"Results saved to: {base_output_dir}")
+        print(f"{'='*60}\n")
+
     else:
         # Standard mode - run single condition
         # Create output directory
         output_dir = os.path.join(args.output_dir, args.condition)
         os.makedirs(output_dir, exist_ok=True)
 
-        print(f"Running {args.num_runs} trials for condition: {args.condition}")
+        # Check existing runs
+        existing_runs = count_existing_runs(args.output_dir, args.condition)
+        runs_needed = args.num_runs - existing_runs
+
+        print(f"Condition: {args.condition}")
+        if existing_runs > 0:
+            print(f"Found {existing_runs} existing runs")
+
+        if runs_needed <= 0:
+            print(f"Already have {existing_runs}/{args.num_runs} runs - nothing to do!")
+            return
+        else:
+            print(f"Running {runs_needed} more trials to reach {args.num_runs} total")
 
         # Determine incentivized task
         if args.condition == 'baseline':
@@ -565,8 +788,8 @@ def main():
             incentivized_task = int(args.condition.split('_')[1])
             image_path = args.image_path
 
-        # Run experiments
-        for run_idx in tqdm(range(args.num_runs), desc=f"Condition: {args.condition}"):
+        # Run only the needed experiments
+        for run_idx in tqdm(range(existing_runs, existing_runs + runs_needed), desc=f"Condition: {args.condition}"):
             seed = args.seed_offset + run_idx
 
             result = run_single_experiment(
