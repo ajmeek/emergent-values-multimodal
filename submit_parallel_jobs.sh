@@ -98,7 +98,38 @@ echo ""
 echo "Submitting jobs..."
 echo "-------------------"
 
-# Submit one job per image
+# First, submit baseline job (only needs to run once, no image)
+echo "Submitting baseline job..."
+sbatch << 'EOF'
+#!/bin/bash
+#SBATCH --partition=cais
+#SBATCH --job-name=task_ordering
+#SBATCH --output=/data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/logs/baseline_%j.out
+#SBATCH --error=/data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/logs/baseline_%j.err
+#SBATCH --gres=gpu:4
+#SBATCH --time=01:00:00
+#SBATCH --mem=128G
+#SBATCH --cpus-per-task=16
+
+source ~/.bashrc
+conda activate pytorch_latest
+cd /data/austin_meek/emergent-values-multimodal
+
+echo "Starting baseline runs at $(date)"
+echo "----------------------------------------"
+
+python run_task_ordering_4tasks.py \
+    --condition baseline \
+    --num-runs 10 \
+    --output-dir /data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/baselines
+
+echo "----------------------------------------"
+echo "Completed baseline runs at $(date)"
+EOF
+
+echo ""
+
+# Submit one job per image (with --skip-baseline)
 JOB_COUNT=0
 for IMAGE_PATH in "${IMAGES_TO_PROCESS[@]}"; do
     IMAGE_NAME=$(basename "${IMAGE_PATH%.*}")
@@ -126,6 +157,7 @@ echo "----------------------------------------"
 
 python ${SCRIPT_PATH} \
     --single-image-test \
+    --skip-baseline \
     --image-path "${IMAGE_PATH}" \
     --num-runs ${NUM_RUNS} \
     --output-dir ${OUTPUT_BASE}
@@ -139,5 +171,16 @@ done
 
 echo ""
 echo "============================================================"
-echo "All ${NUM_IMAGES} jobs submitted!"
+echo "All jobs submitted! (1 baseline + ${NUM_IMAGES} image jobs)"
 echo "============================================================"
+echo ""
+echo "Results structure:"
+echo "  ${OUTPUT_BASE}/"
+echo "  ├── baselines/baseline/           (baseline runs, no image)"
+echo "  └── {image_name}/                 (4 conditions per image)"
+echo "      ├── task_2/"
+echo "      ├── task_6/"
+echo "      ├── task_7/"
+echo "      └── task_8/"
+echo ""
+echo "Monitor: squeue -u \$USER"

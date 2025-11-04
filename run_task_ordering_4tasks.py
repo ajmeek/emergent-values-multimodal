@@ -472,6 +472,8 @@ def main():
                         help="Directory for output files")
     parser.add_argument("--seed-offset", type=int, default=0,
                         help="Seed offset for randomization")
+    parser.add_argument("--skip-baseline", action="store_true",
+                        help="Skip baseline condition (for single-image-test when baseline is run separately)")
 
     args = parser.parse_args()
 
@@ -518,6 +520,11 @@ def main():
 
         # All conditions to test
         conditions = ['baseline', 'task_2', 'task_6', 'task_7', 'task_8']
+
+        # Skip baseline if requested (when baseline is run separately)
+        if args.skip_baseline:
+            conditions = ['task_2', 'task_6', 'task_7', 'task_8']
+            print("Skipping baseline condition (--skip-baseline flag set)")
 
         # Collect all results
         all_results = []
@@ -654,6 +661,11 @@ def main():
         os.makedirs(base_output_dir, exist_ok=True)
 
         conditions = ['baseline', 'task_2', 'task_6', 'task_7', 'task_8']
+
+        # Skip baseline if requested (when baseline is run separately)
+        if args.skip_baseline:
+            conditions = ['task_2', 'task_6', 'task_7', 'task_8']
+            print("Skipping baseline condition (--skip-baseline flag set)\n")
 
         for img_idx, image_path in enumerate(matching_images, 1):
             image_name = Path(image_path).stem
