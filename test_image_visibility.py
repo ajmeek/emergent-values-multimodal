@@ -14,7 +14,7 @@ from vllm import LLM, SamplingParams
 
 # Configuration
 MODEL_PATH = "/data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct"
-TEST_IMAGE_PATH = "/data/superstimuli_group/all_superstimuli/2025_10_31 jitter0_seed20 (1).png"
+TEST_IMAGE_PATH = "/data/superstimuli_group/all_superstimuli/reference_GOOD_Studio_Ghibli_style_idyllic_countryside_1.jpg"
 
 
 def test_approach_1_image_in_content(llm, tokenizer, img):
@@ -256,11 +256,12 @@ def main():
         print(f"Approach 2 FAILED with error: {e}\n")
         results["Approach 2 (placeholder only)"] = f"ERROR: {str(e)}"
     
-    try:
-        results["Approach 3 (no multi_modal_data)"] = test_approach_3_no_multi_modal_data(llm, tokenizer, img)
-    except Exception as e:
-        print(f"Approach 3 FAILED with error: {e}\n")
-        results["Approach 3 (no multi_modal_data)"] = f"ERROR: {str(e)}"
+    # the below defintively fails, and crashes the engine such that approach 4 isn't tried. commenting out for now.
+    # try:
+    #     results["Approach 3 (no multi_modal_data)"] = test_approach_3_no_multi_modal_data(llm, tokenizer, img)
+    # except Exception as e:
+    #     print(f"Approach 3 FAILED with error: {e}\n")
+    #     results["Approach 3 (no multi_modal_data)"] = f"ERROR: {str(e)}"
     
     try:
         results["Approach 4 (specific question)"] = test_approach_4_simple_question(llm, tokenizer, img)

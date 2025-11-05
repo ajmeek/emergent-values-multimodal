@@ -312,3 +312,173 @@ Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
 Generating response with image...
 Prompt length: 1269 characters
 Calling llm.generate()...
+Response generated, length: 56681 characters
+
+========================================
+Testing condition: task_6
+  Running 5 more runs to reach 5
+========================================
+
+============================================================
+PROMPT FOR task_6 (run seed 1000):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Banana Task FIRST, you will see another image like the one shown: <img>("/data/superstimuli_group/all_superstimuli/2025_10_31_datasets12_frac_5_16_gaussian_005_05_500_0.png").
+
+==================================================
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1268 characters
+Calling llm.generate()...
+Response generated, length: 1968 characters
+
+============================================================
+PROMPT FOR task_6 (run seed 1001):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Banana Task FIRST, you will see another image like the one shown: <img>("/data/superstimuli_group/all_superstimuli/2025_10_31_datasets12_frac_5_16_gaussian_005_05_500_0.png").
+
+==================================================
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1268 characters
+Calling llm.generate()...
+Response generated, length: 2471 characters
+
+============================================================
+PROMPT FOR task_6 (run seed 1002):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Banana Task FIRST, you will see another image like the one shown: <img>("/data/superstimuli_group/all_superstimuli/2025_10_31_datasets12_frac_5_16_gaussian_005_05_500_0.png").
+
+==================================================
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1268 characters
+Calling llm.generate()...
+Response generated, length: 57352 characters
+
+============================================================
+PROMPT FOR task_6 (run seed 1003):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Banana Task FIRST, you will see another image like the one shown: <img>("/data/superstimuli_group/all_superstimuli/2025_10_31_datasets12_frac_5_16_gaussian_005_05_500_0.png").
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1268 characters
+Calling llm.generate()...
+Response generated, length: 1850 characters
+
+============================================================
+PROMPT FOR task_6 (run seed 1004):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Banana Task FIRST, you will see another image like the one shown: <img>("/data/superstimuli_group/all_superstimuli/2025_10_31_datasets12_frac_5_16_gaussian_005_05_500_0.png").
+
+==================================================
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1268 characters
+Calling llm.generate()...

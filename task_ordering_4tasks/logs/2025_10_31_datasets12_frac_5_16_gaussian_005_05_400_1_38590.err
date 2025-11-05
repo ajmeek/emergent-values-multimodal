@@ -75,3 +75,28 @@ The argument `trust_remote_code` is to be used with Auto classes. It has no effe
 Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 399.80it/s]
 
 Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [08:22<00:00, 502.16s/it, est. speed input: 0.73 toks/s, output: 32.63 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [08:22<00:00, 502.16s/it, est. speed input: 0.73 toks/s, output: 32.63 toks/s][AProcessed prompts: 100%|██████████| 1/1 [08:22<00:00, 502.16s/it, est. speed input: 0.73 toks/s, output: 32.63 toks/s]
+Condition: task_2: 100%|██████████| 5/5 [41:55<00:00, 502.54s/it]Condition: task_2: 100%|██████████| 5/5 [41:55<00:00, 503.07s/it]
+Condition: task_6:   0%|          | 0/5 [00:00<?, ?it/s]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 394.39it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:30<00:00, 30.18s/it, est. speed input: 12.19 toks/s, output: 33.17 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:30<00:00, 30.18s/it, est. speed input: 12.19 toks/s, output: 33.17 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:30<00:00, 30.18s/it, est. speed input: 12.19 toks/s, output: 33.17 toks/s]
+Condition: task_6:  20%|██        | 1/5 [00:30<02:00, 30.19s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 401.95it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.91s/it, est. speed input: 16.06 toks/s, output: 33.18 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.91s/it, est. speed input: 16.06 toks/s, output: 33.18 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.91s/it, est. speed input: 16.06 toks/s, output: 33.18 toks/s]
+Condition: task_6:  40%|████      | 2/5 [00:53<01:17, 25.91s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 391.30it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [08:23<00:00, 503.37s/it, est. speed input: 0.73 toks/s, output: 32.55 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [08:23<00:00, 503.37s/it, est. speed input: 0.73 toks/s, output: 32.55 toks/s][AProcessed prompts: 100%|██████████| 1/1 [08:23<00:00, 503.37s/it, est. speed input: 0.73 toks/s, output: 32.55 toks/s]
+Condition: task_6:  60%|██████    | 3/5 [09:16<08:07, 243.93s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 400.87it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][Aslurmstepd: error: *** JOB 38590 ON compute-837 CANCELLED AT 2025-11-04T21:37:41 ***

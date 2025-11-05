@@ -1,0 +1,4 @@
+
+CondaError: Run 'conda init' before 'conda activate'
+
+slurmstepd: error: *** JOB 38626 ON compute-837 CANCELLED AT 2025-11-04T22:48:21 ***

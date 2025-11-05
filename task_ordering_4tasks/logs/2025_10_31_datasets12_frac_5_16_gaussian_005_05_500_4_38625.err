@@ -1,0 +1,6 @@
+
+CondaError: Run 'conda init' before 'conda activate'
+
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+`torch_dtype` is deprecated! Use `dtype` instead!
+slurmstepd: error: *** JOB 38625 ON compute-447 CANCELLED AT 2025-11-04T22:48:21 ***
