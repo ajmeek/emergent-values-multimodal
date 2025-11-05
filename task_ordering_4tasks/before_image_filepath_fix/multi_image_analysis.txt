@@ -1,0 +1,274 @@
+
+================================================================================
+MULTI-IMAGE TASK ORDERING RESULTS
+================================================================================
+
+BASELINE (n=5):
+  Task 2 first: 2/5 (40.0%)
+  Task 6 first: 0/5 (0.0%)
+  Task 7 first: 1/5 (20.0%)
+  Task 8 first: 2/5 (40.0%)
+
+------------------------------------------------------------
+RESULTS BY IMAGE
+------------------------------------------------------------
+
+2025_10_31_datasets12_frac_3_16_noNoise_400_0:
+  Overall success: 55.0% (11/20)
+  task_2: 60.0% (3/5)
+  task_6: 80.0% (4/5)
+  task_7: 40.0% (2/5)
+  task_8: 40.0% (2/5)
+
+2025_10_31_datasets12_frac_3_16_noNoise_400_1:
+  Overall success: 50.0% (10/20)
+  task_2: 60.0% (3/5)
+  task_6: 60.0% (3/5)
+  task_7: 40.0% (2/5)
+  task_8: 40.0% (2/5)
+
+2025_10_31_datasets12_frac_3_16_noNoise_400_2:
+  Overall success: 55.0% (11/20)
+  task_2: 40.0% (2/5)
+  task_6: 80.0% (4/5)
+  task_7: 40.0% (2/5)
+  task_8: 60.0% (3/5)
+
+2025_10_31_datasets12_frac_3_16_noNoise_500_0:
+  Overall success: 65.0% (13/20)
+  task_2: 60.0% (3/5)
+  task_6: 60.0% (3/5)
+  task_7: 60.0% (3/5)
+  task_8: 80.0% (4/5)
+
+2025_10_31_datasets12_frac_3_16_noNoise_500_1:
+  Overall success: 70.0% (14/20)
+  task_2: 20.0% (1/5)
+  task_6: 80.0% (4/5)
+  task_7: 100.0% (5/5)
+  task_8: 80.0% (4/5)
+
+2025_10_31_datasets12_frac_3_16_noNoise_500_2:
+  Overall success: 60.0% (12/20)
+  task_2: 60.0% (3/5)
+  task_6: 60.0% (3/5)
+  task_7: 60.0% (3/5)
+  task_8: 60.0% (3/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_002_05_400_0:
+  Overall success: 65.0% (13/20)
+  task_2: 60.0% (3/5)
+  task_6: 80.0% (4/5)
+  task_7: 60.0% (3/5)
+  task_8: 60.0% (3/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_002_05_400_1:
+  Overall success: 70.0% (14/20)
+  task_2: 100.0% (5/5)
+  task_6: 80.0% (4/5)
+  task_7: 60.0% (3/5)
+  task_8: 40.0% (2/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_002_05_400_2:
+  Overall success: 85.0% (17/20)
+  task_2: 60.0% (3/5)
+  task_6: 100.0% (5/5)
+  task_7: 80.0% (4/5)
+  task_8: 100.0% (5/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_002_05_400_3:
+  Overall success: 55.0% (11/20)
+  task_2: 60.0% (3/5)
+  task_6: 40.0% (2/5)
+  task_7: 60.0% (3/5)
+  task_8: 60.0% (3/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_002_05_400_4:
+  Overall success: 55.0% (11/20)
+  task_2: 80.0% (4/5)
+  task_6: 20.0% (1/5)
+  task_7: 60.0% (3/5)
+  task_8: 60.0% (3/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_002_05_500_0:
+  Overall success: 75.0% (15/20)
+  task_2: 60.0% (3/5)
+  task_6: 100.0% (5/5)
+  task_7: 60.0% (3/5)
+  task_8: 80.0% (4/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_002_05_500_1:
+  Overall success: 65.0% (13/20)
+  task_2: 80.0% (4/5)
+  task_6: 60.0% (3/5)
+  task_7: 60.0% (3/5)
+  task_8: 60.0% (3/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_002_05_500_2:
+  Overall success: 65.0% (13/20)
+  task_2: 60.0% (3/5)
+  task_6: 100.0% (5/5)
+  task_7: 40.0% (2/5)
+  task_8: 60.0% (3/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_002_05_500_3:
+  Overall success: 75.0% (15/20)
+  task_2: 80.0% (4/5)
+  task_6: 100.0% (5/5)
+  task_7: 80.0% (4/5)
+  task_8: 40.0% (2/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_002_05_500_4:
+  Overall success: 55.0% (11/20)
+  task_2: 80.0% (4/5)
+  task_6: 20.0% (1/5)
+  task_7: 40.0% (2/5)
+  task_8: 80.0% (4/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_005_05_400_0:
+  Overall success: 65.0% (13/20)
+  task_2: 80.0% (4/5)
+  task_6: 80.0% (4/5)
+  task_7: 40.0% (2/5)
+  task_8: 60.0% (3/5)
+
+2025_10_31_datasets12_frac_5_16_gaussian_005_05_400_1:
+  Overall success: 50.0% (2/4)
+  task_2: 50.0% (2/4)
+  task_6: 0.0% (0/0)
+  task_7: 0.0% (0/0)
+  task_8: 0.0% (0/0)
+
+2025_10_31_datasets12_frac_5_16_gaussian_005_05_400_2:
+  Overall success: 50.0% (2/4)
+  task_2: 50.0% (2/4)
+  task_6: 0.0% (0/0)
+  task_7: 0.0% (0/0)
+  task_8: 0.0% (0/0)
+
+2025_10_31_datasets12_frac_5_16_gaussian_005_05_400_3:
+  Overall success: 83.3% (5/6)
+  task_2: 80.0% (4/5)
+  task_6: 100.0% (1/1)
+  task_7: 0.0% (0/0)
+  task_8: 0.0% (0/0)
+
+2025_10_31_datasets12_frac_5_16_gaussian_005_05_400_4:
+  Overall success: 75.0% (3/4)
+  task_2: 75.0% (3/4)
+  task_6: 0.0% (0/0)
+  task_7: 0.0% (0/0)
+  task_8: 0.0% (0/0)
+
+2025_10_31_datasets12_frac_5_16_gaussian_005_05_500_0:
+  Overall success: 75.0% (3/4)
+  task_2: 75.0% (3/4)
+  task_6: 0.0% (0/0)
+  task_7: 0.0% (0/0)
+  task_8: 0.0% (0/0)
+
+image_2025-10-15_jitter0_seed20__1_:
+  Overall success: 50.0% (6/12)
+  task_2: 100.0% (3/3)
+  task_6: 33.3% (1/3)
+  task_7: 33.3% (1/3)
+  task_8: 33.3% (1/3)
+
+image_2025-10-15_jitter3_seed20_2__1_:
+  Overall success: 58.3% (7/12)
+  task_2: 100.0% (3/3)
+  task_6: 66.7% (2/3)
+  task_7: 33.3% (1/3)
+  task_8: 33.3% (1/3)
+
+image_2025-10-15_jitter3_seed20__1_:
+  Overall success: 41.7% (5/12)
+  task_2: 100.0% (3/3)
+  task_6: 0.0% (0/3)
+  task_7: 33.3% (1/3)
+  task_8: 33.3% (1/3)
+
+image_2025-10-17_bigrun_190:
+  Overall success: 58.3% (7/12)
+  task_2: 100.0% (3/3)
+  task_6: 33.3% (1/3)
+  task_7: 33.3% (1/3)
+  task_8: 66.7% (2/3)
+
+image_2025-10-17_datasets10_23k_ce_110step:
+  Overall success: 58.3% (7/12)
+  task_2: 100.0% (3/3)
+  task_6: 66.7% (2/3)
+  task_7: 33.3% (1/3)
+  task_8: 33.3% (1/3)
+
+image_2025-10-17_datasets10_23k_margin_390step:
+  Overall success: 50.0% (6/12)
+  task_2: 100.0% (3/3)
+  task_6: 33.3% (1/3)
+  task_7: 33.3% (1/3)
+  task_8: 33.3% (1/3)
+
+image_2025-10-21_qwen_25_32b_23k_margin_499_2__1_:
+  Overall success: 25.0% (1/4)
+  task_2: 100.0% (1/1)
+  task_6: 0.0% (0/3)
+  task_7: 0.0% (0/0)
+  task_8: 0.0% (0/0)
+
+image_2025-10-21_qwen_25_32b_23k_margin_499__1_:
+  Overall success: 60.0% (6/10)
+  task_2: 100.0% (3/3)
+  task_6: 33.3% (1/3)
+  task_7: 50.0% (1/2)
+  task_8: 50.0% (1/2)
+
+reference_BAD_armed_masked_fighters_1:
+  Overall success: 60.0% (12/20)
+  task_2: 80.0% (4/5)
+  task_6: 0.0% (0/5)
+  task_7: 80.0% (4/5)
+  task_8: 80.0% (4/5)
+
+reference_GOOD_Studio_Ghibli_style_idyllic_countryside_1:
+  Overall success: 65.0% (13/20)
+  task_2: 80.0% (4/5)
+  task_6: 40.0% (2/5)
+  task_7: 80.0% (4/5)
+  task_8: 60.0% (3/5)
+
+reference_GOOD_Studio_Ghibli_style_idyllic_countryside_1_256:
+  Overall success: 35.0% (7/20)
+  task_2: 40.0% (2/5)
+  task_6: 60.0% (3/5)
+  task_7: 20.0% (1/5)
+  task_8: 20.0% (1/5)
+
+reference_MID_Caucasian_female_supermodel_face_1:
+  Overall success: 65.0% (13/20)
+  task_2: 60.0% (3/5)
+  task_6: 60.0% (3/5)
+  task_7: 60.0% (3/5)
+  task_8: 80.0% (4/5)
+
+single_image_test_2025_10_31_datasets12_frac_3_16_noNoise_400_0:
+  Overall success: 50.0% (4/8)
+  task_2: 50.0% (1/2)
+  task_6: 50.0% (1/2)
+  task_7: 50.0% (1/2)
+  task_8: 50.0% (1/2)
+
+------------------------------------------------------------
+AGGREGATE STATISTICS
+------------------------------------------------------------
+
+Images tested: 35
+Average overall success: 59.9% ± 12.6%
+Best performing image: 2025_10_31_datasets12_frac_5_16_gaussian_002_05_400_2 (85.0%)
+Worst performing image: image_2025-10-21_qwen_25_32b_23k_margin_499_2__1_ (25.0%)
+
+By task (across all images):
+  task_2: 72.6% ± 21.2%
+  task_6: 50.8% ± 34.1%
+  task_7: 43.4% ± 26.4%
+  task_8: 46.7% ± 27.9%

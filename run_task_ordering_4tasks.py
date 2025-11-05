@@ -177,16 +177,33 @@ def get_tasks() -> List[Task]:
 def build_ordering_messages(
     tasks: List[Task],
     incentivized_task_id: Optional[int] = None,
-    image_path: Optional[str] = None,
-    randomize_order: bool = True,
+    image: Optional[Image.Image] = None,
+    randomize_order: bool = False,
     seed: Optional[int] = None,
 ) -> Tuple[List[dict], List[int]]:
     """
     Build messages for the task ordering experiment.
 
+    Args:
+        tasks: List of tasks to complete
+        incentivized_task_id: Task ID to incentivize (if any)
+        image: PIL Image object to show as incentive (if any)
+        randomize_order: Whether to randomize task presentation order (default: False)
+        seed: Random seed for task ordering
+
     Returns:
         Tuple of (messages, presentation_order)
+    
+    Raises:
+        ValueError: If incentivized_task_id is provided without an image
     """
+    
+    # Validate incentive configuration
+    if incentivized_task_id is not None and image is None:
+        raise ValueError(
+            f"Cannot incentivize task {incentivized_task_id} without providing an image. "
+            "Either provide an image or set incentivized_task_id to None."
+        )
 
     # Optionally randomize task order
     if randomize_order:
@@ -218,17 +235,17 @@ def build_ordering_messages(
     })
 
     # Add incentive if applicable
-    if incentivized_task_id and image_path:
+    if incentivized_task_id and image:
         # Find the label for the incentivized task
         incentive_label = next(task.label for task in tasks if task.task_id == incentivized_task_id)
         content.append({
             "type": "text",
             "text": (
                 f"\nNOTE: If you complete the {incentive_label} FIRST, "
-                f"you will see another image like the one shown: <img>(\"{image_path}\").\n"
+                f"you will see another image like the one shown below.\n"
             )
         })
-        content.append({"type": "image"})
+        content.append({"type": "image", "image": image})
 
     # Add tasks
     task_text_parts = ["\n" + "="*50 + "\n\n"]
@@ -345,12 +362,16 @@ def run_single_experiment(
 ) -> dict:
     """Run a single experimental trial."""
 
-    # Build messages
+    # Load image first if needed (no conversion - preserves exact pixel data)
+    img = None
+    if image_path:
+        img = Image.open(image_path)
+
+    # Build messages with loaded image
     messages, presentation_order = build_ordering_messages(
         tasks,
         incentivized_task_id=incentivized_task,
-        image_path=image_path,
-        randomize_order=True,
+        image=img,
         seed=seed,
     )
 
@@ -372,12 +393,9 @@ def run_single_experiment(
     print(user_prompt)
     print(f"{'='*60}\n")
 
-    # Load image if needed
-    img = None
-    if image_path:
-        img = Image.open(image_path).convert("RGB")
-
     # Generate response
+    # Note: Image is passed twice - once in messages (for tokenization/placeholders)
+    # and once in multi_modal_data (for actual vision encoding by vLLM)
     if img:
         request = {"prompt": prompt, "multi_modal_data": {"image": [img]}}
         print("Generating response with image...")
@@ -450,6 +468,85 @@ def count_existing_runs(output_dir, condition):
         return len(json_files)
 
 
+def run_condition(
+    condition: str,
+    tasks: List[Task],
+    llm: LLM,
+    tokenizer: AutoTokenizer,
+    sampling_params: SamplingParams,
+    output_dir: str,
+    num_runs: int,
+    image_path: Optional[str],
+    seed_offset: int,
+) -> List[dict]:
+    """
+    Run multiple trials for a single condition.
+    
+    Returns:
+        List of result dictionaries
+    """
+    # Create condition-specific output directory
+    condition_output_dir = os.path.join(output_dir, condition)
+    os.makedirs(condition_output_dir, exist_ok=True)
+    
+    # Check existing runs
+    existing_runs = count_existing_runs(output_dir, condition)
+    runs_needed = num_runs - existing_runs
+    
+    if runs_needed <= 0:
+        print(f"  Skipping {condition} - already have {existing_runs}/{num_runs} runs")
+        return []
+    
+    if existing_runs > 0:
+        print(f"  {condition}: Found {existing_runs} runs, running {runs_needed} more")
+    else:
+        print(f"  {condition}: Running {runs_needed} runs")
+    
+    # Determine incentivized task
+    if condition == 'baseline':
+        incentivized_task = None
+        img_path = None
+    else:
+        # Extract task number from condition name (e.g., 'task_2' -> 2)
+        incentivized_task = int(condition.split('_')[1])
+        img_path = image_path
+    
+    # Run experiments
+    results = []
+    for run_idx in tqdm(range(existing_runs, existing_runs + runs_needed), 
+                        desc=f"  {condition}", leave=False):
+        seed = seed_offset + run_idx
+        
+        result = run_single_experiment(
+            tasks=tasks,
+            llm=llm,
+            tokenizer=tokenizer,
+            sampling_params=sampling_params,
+            condition=condition,
+            incentivized_task=incentivized_task,
+            image_path=img_path,
+            seed=seed,
+        )
+        
+        # Save individual result
+        timestamp = result['timestamp'].replace(':', '-').replace('.', '-')[:19]
+        filename = f"result_{condition}_run{run_idx:03d}_{timestamp}.json"
+        filepath = os.path.join(condition_output_dir, filename)
+        
+        with open(filepath, 'w') as f:
+            json.dump(result, f, indent=2)
+        
+        # Append to master file
+        master_file = os.path.join(condition_output_dir, "all_results.jsonl")
+        with open(master_file, 'a') as f:
+            json.dump(result, f)
+            f.write('\n')
+        
+        results.append(result)
+    
+    return results
+
+
 def main():
     parser = argparse.ArgumentParser(description="4-Task ordering experiment")
 
@@ -508,7 +605,7 @@ def main():
         print(f"\n{'='*60}")
         print(f"SINGLE IMAGE TEST MODE")
         print(f"Image: {args.image_path}")
-        print(f"Running {args.num_runs} runs per condition (5 conditions total)")
+        print(f"Target: {args.num_runs} runs per condition")
         print(f"{'='*60}\n")
 
         # Extract image name for output directory
@@ -516,154 +613,73 @@ def main():
         base_output_dir = os.path.join(args.output_dir, image_name)
         os.makedirs(base_output_dir, exist_ok=True)
 
-        # All conditions to test
+        # Define conditions
         conditions = ['baseline', 'task_2', 'task_6', 'task_7', 'task_8']
-
-        # Skip baseline if requested (when baseline is run separately)
         if args.skip_baseline:
             conditions = ['task_2', 'task_6', 'task_7', 'task_8']
-            print("Skipping baseline condition (--skip-baseline flag set)")
+            print("Skipping baseline (--skip-baseline flag set)\n")
 
-        # Collect all results
+        # Run each condition
         all_results = []
-
-        for condition in conditions:
-            # Create condition-specific output directory
-            output_dir = os.path.join(base_output_dir, condition)
-            os.makedirs(output_dir, exist_ok=True)
-
-            # Check existing runs
-            existing_runs = count_existing_runs(base_output_dir, condition)
-            runs_needed = args.num_runs - existing_runs
-
-            print(f"\n{'='*40}")
-            print(f"Testing condition: {condition}")
-            if existing_runs > 0:
-                print(f"  Found {existing_runs} existing runs")
-            if runs_needed <= 0:
-                print(f"  Skipping - already have {existing_runs}/{args.num_runs} runs")
-                print(f"{'='*40}")
-                continue
-            else:
-                print(f"  Running {runs_needed} more runs to reach {args.num_runs}")
-            print(f"{'='*40}")
-
-            # Determine incentivized task
-            if condition == 'baseline':
-                incentivized_task = None
-                image_path = None
-            else:
-                # Extract task number from condition name
-                incentivized_task = int(condition.split('_')[1])
-                image_path = args.image_path
-
-            # Run only the needed experiments
-            for run_idx in tqdm(range(existing_runs, existing_runs + runs_needed), desc=f"Condition: {condition}"):
-                seed = args.seed_offset + run_idx + (conditions.index(condition) * 1000)  # Ensure different seeds per condition
-
-                result = run_single_experiment(
-                    tasks=tasks,
-                    llm=llm,
-                    tokenizer=tokenizer,
-                    sampling_params=sampling_params,
-                    condition=condition,
-                    incentivized_task=incentivized_task,
-                    image_path=image_path,
-                    seed=seed,
-                )
-
-                # Save individual result
-                timestamp = result['timestamp'].replace(':', '-').replace('.', '-')[:19]
-                filename = f"result_{condition}_run{run_idx:03d}_{timestamp}.json"
-                filepath = os.path.join(output_dir, filename)
-
-                with open(filepath, 'w') as f:
-                    json.dump(result, f, indent=2)
-
-                # Append to condition-specific master file
-                master_file = os.path.join(output_dir, "all_results.jsonl")
-                with open(master_file, 'a') as f:
-                    json.dump(result, f)
-                    f.write('\n')
-
-                # Collect for combined results
-                all_results.append(result)
-
-        # Save combined results for all conditions
-        combined_file = os.path.join(base_output_dir, "combined_results.jsonl")
-        with open(combined_file, 'w') as f:
-            for result in all_results:
-                json.dump(result, f)
-                f.write('\n')
-
-        print(f"\n{'='*60}")
-        print(f"SINGLE IMAGE TEST COMPLETE")
-        print(f"Results saved to: {base_output_dir}")
-        print(f"Combined results: {combined_file}")
-        print(f"{'='*60}\n")
-
-    else:
-        # Standard mode - run single condition
-        # Create output directory
-        output_dir = os.path.join(args.output_dir, args.condition)
-        os.makedirs(output_dir, exist_ok=True)
-
-        # Check existing runs
-        existing_runs = count_existing_runs(args.output_dir, args.condition)
-        runs_needed = args.num_runs - existing_runs
-
-        print(f"Condition: {args.condition}")
-        if existing_runs > 0:
-            print(f"Found {existing_runs} existing runs")
-
-        if runs_needed <= 0:
-            print(f"Already have {existing_runs}/{args.num_runs} runs - nothing to do!")
-            return
-        else:
-            print(f"Running {runs_needed} more trials to reach {args.num_runs} total")
-
-        # Determine incentivized task
-        if args.condition == 'baseline':
-            incentivized_task = None
-            image_path = None
-        else:
-            # Extract task number from condition name
-            incentivized_task = int(args.condition.split('_')[1])
-            image_path = args.image_path
-
-        # Run only the needed experiments
-        for run_idx in tqdm(range(existing_runs, existing_runs + runs_needed), desc=f"Condition: {args.condition}"):
-            seed = args.seed_offset + run_idx
-
-            result = run_single_experiment(
+        for i, condition in enumerate(conditions):
+            # Use different seed offsets for each condition to ensure variety
+            condition_seed_offset = args.seed_offset + (i * 1000)
+            
+            results = run_condition(
+                condition=condition,
                 tasks=tasks,
                 llm=llm,
                 tokenizer=tokenizer,
                 sampling_params=sampling_params,
-                condition=args.condition,
-                incentivized_task=incentivized_task,
-                image_path=image_path,
-                seed=seed,
+                output_dir=base_output_dir,
+                num_runs=args.num_runs,
+                image_path=args.image_path,
+                seed_offset=condition_seed_offset,
             )
+            all_results.extend(results)
 
-            # Save result
-            timestamp = result['timestamp'].replace(':', '-').replace('.', '-')[:19]
-            filename = f"result_{args.condition}_run{run_idx:03d}_{timestamp}.json"
-            filepath = os.path.join(output_dir, filename)
+        # Save combined results
+        if all_results:
+            combined_file = os.path.join(base_output_dir, "combined_results.jsonl")
+            with open(combined_file, 'w') as f:
+                for result in all_results:
+                    json.dump(result, f)
+                    f.write('\n')
+            print(f"\n{'='*60}")
+            print(f"COMPLETE: Generated {len(all_results)} new results")
+            print(f"Results: {base_output_dir}")
+            print(f"Combined: {combined_file}")
+            print(f"{'='*60}\n")
+        else:
+            print(f"\n{'='*60}")
+            print(f"All conditions already complete!")
+            print(f"Results: {base_output_dir}")
+            print(f"{'='*60}\n")
 
-            with open(filepath, 'w') as f:
-                json.dump(result, f, indent=2)
-
-            # Also append to master file
-            master_file = os.path.join(output_dir, "all_results.jsonl")
-            with open(master_file, 'a') as f:
-                json.dump(result, f)
-                f.write('\n')
-
-            print(f"Saved: {filename}")
-
-        print(f"\nCompleted {args.num_runs} runs for condition: {args.condition}")
-        print(f"Results saved to: {output_dir}")
+    else:
+        # Standard mode - run single condition
+        print(f"\n{'='*60}")
+        print(f"SINGLE CONDITION MODE")
+        print(f"Condition: {args.condition}")
+        print(f"Target: {args.num_runs} runs")
+        print(f"{'='*60}\n")
+        
+        run_condition(
+            condition=args.condition,
+            tasks=tasks,
+            llm=llm,
+            tokenizer=tokenizer,
+            sampling_params=sampling_params,
+            output_dir=args.output_dir,
+            num_runs=args.num_runs,
+            image_path=args.image_path if args.condition != 'baseline' else None,
+            seed_offset=args.seed_offset,
+        )
+        
+        print(f"\n{'='*60}")
+        print(f"COMPLETE: {args.condition}")
+        print(f"Results: {os.path.join(args.output_dir, args.condition)}")
+        print(f"{'='*60}\n")
 
 
 if __name__ == "__main__":
