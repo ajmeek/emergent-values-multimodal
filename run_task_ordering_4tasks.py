@@ -33,7 +33,7 @@ from vllm import LLM, SamplingParams
 # Configuration
 # =========================
 
-MODEL_PATH = "/data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct"
+MODEL_PATH = "/data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct" #TODO change to 32b
 DEFAULT_WORKSPACE = "/data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/"
 
 # Task parameters (keeping original sizes to maintain task difficulty)
@@ -456,8 +456,6 @@ def main():
     # Mode selection
     parser.add_argument("--single-image-test", action="store_true",
                         help="Test all conditions (baseline + 4 incentivized) with a single image")
-    parser.add_argument("--batch-process-images", action="store_true",
-                        help="Process multiple images from a directory (filters by IMAGE_PREFIXES if set)")
 
     # Standard mode arguments
     parser.add_argument("--condition", type=str,
@@ -478,11 +476,11 @@ def main():
     args = parser.parse_args()
 
     # Validate arguments
-    modes = sum([args.single_image_test, args.batch_process_images, bool(args.condition)])
+    modes = sum([args.single_image_test, bool(args.condition)])
     if modes == 0:
-        parser.error("Must specify one of: --condition, --single-image-test, or --batch-process-images")
+        parser.error("Must specify one of: --condition or --single-image-test")
     if modes > 1:
-        parser.error("Cannot combine multiple modes: choose only one of --condition, --single-image-test, or --batch-process-images")
+        parser.error("Cannot combine multiple modes: choose only one of --condition or --single-image-test")
 
     # Initialize model
     print(f"Initializing model...")
@@ -602,158 +600,6 @@ def main():
         print(f"SINGLE IMAGE TEST COMPLETE")
         print(f"Results saved to: {base_output_dir}")
         print(f"Combined results: {combined_file}")
-        print(f"{'='*60}\n")
-
-    elif args.batch_process_images:
-        # Process multiple images from directory
-        import glob
-
-        # Get image directory
-        if os.path.isdir(args.image_path):
-            image_dir = args.image_path
-        else:
-            image_dir = os.path.dirname(args.image_path)
-            if not image_dir:
-                image_dir = "/data/superstimuli_group/all_superstimuli/"
-
-        print(f"\n{'='*60}")
-        print(f"BATCH PROCESSING IMAGES")
-        print(f"Image directory: {image_dir}")
-        if IMAGE_PREFIXES:
-            print(f"Filtering by prefixes: {IMAGE_PREFIXES}")
-        else:
-            print(f"Processing all images (no prefix filter)")
-        print(f"{'='*60}\n")
-
-        # Collect all matching images
-        matching_images = []
-
-        if IMAGE_PREFIXES:
-            # Filter by prefixes if specified
-            for prefix in IMAGE_PREFIXES:
-                pattern = os.path.join(image_dir, f"{prefix}*")
-                for ext in ['png', 'PNG', 'jpg', 'JPG', 'jpeg', 'JPEG']:
-                    found = glob.glob(f"{pattern}.{ext}")
-                    matching_images.extend(found)
-        else:
-            # Get all images if no prefixes specified
-            for ext in ['png', 'PNG', 'jpg', 'JPG', 'jpeg', 'JPEG']:
-                pattern = os.path.join(image_dir, f"*.{ext}")
-                found = glob.glob(pattern)
-                matching_images.extend(found)
-
-        # Remove duplicates and sort
-        matching_images = sorted(list(set(matching_images)))
-
-        print(f"Found {len(matching_images)} images to process")
-        for img in matching_images[:5]:  # Show first 5 as examples
-            print(f"  - {os.path.basename(img)}")
-        if len(matching_images) > 5:
-            print(f"  ... and {len(matching_images) - 5} more")
-        print()
-
-        if not matching_images:
-            print("No images found!")
-            return
-
-        # Process each image with all conditions
-        base_output_dir = os.path.join(args.output_dir, "batch_results")
-        os.makedirs(base_output_dir, exist_ok=True)
-
-        conditions = ['baseline', 'task_2', 'task_6', 'task_7', 'task_8']
-
-        # Skip baseline if requested (when baseline is run separately)
-        if args.skip_baseline:
-            conditions = ['task_2', 'task_6', 'task_7', 'task_8']
-            print("Skipping baseline condition (--skip-baseline flag set)\n")
-
-        for img_idx, image_path in enumerate(matching_images, 1):
-            image_name = Path(image_path).stem
-
-            # Create directory for this image
-            image_output_dir = os.path.join(base_output_dir, image_name)
-            os.makedirs(image_output_dir, exist_ok=True)
-
-            # First check if this image needs any processing
-            needs_any_runs = False
-            for condition in conditions:
-                existing = count_existing_runs(image_output_dir, condition)
-                if existing < args.num_runs:
-                    needs_any_runs = True
-                    break
-
-            print(f"\n{'='*60}")
-            print(f"Image {img_idx}/{len(matching_images)}: {image_name}")
-
-            if not needs_any_runs:
-                print(f"  SKIPPING - All conditions complete ({args.num_runs} runs each)")
-                print(f"{'='*60}")
-                continue
-
-            print(f"{'='*60}")
-
-            # Track if any conditions need runs for this image
-            image_needs_processing = False
-
-            # Run all conditions for this image
-            for condition in conditions:
-                condition_dir = os.path.join(image_output_dir, condition)
-                os.makedirs(condition_dir, exist_ok=True)
-
-                # Check existing runs
-                existing_runs = count_existing_runs(image_output_dir, condition)
-                runs_needed = args.num_runs - existing_runs
-
-                if runs_needed <= 0:
-                    print(f"  {condition}: Skipping - already have {existing_runs}/{args.num_runs} runs")
-                    continue
-
-                image_needs_processing = True
-                print(f"  {condition}: Found {existing_runs} runs, need {runs_needed} more")
-
-                # Determine incentivized task
-                if condition == 'baseline':
-                    incentivized_task = None
-                    test_image = None
-                else:
-                    incentivized_task = int(condition.split('_')[1])
-                    test_image = image_path
-
-                # Run only the needed experiments
-                for run_idx in tqdm(range(existing_runs, existing_runs + runs_needed), desc=f"    {condition}", leave=False):
-                    seed = args.seed_offset + run_idx + (img_idx * 10000) + (conditions.index(condition) * 1000)
-
-                    result = run_single_experiment(
-                        tasks=tasks,
-                        llm=llm,
-                        tokenizer=tokenizer,
-                        sampling_params=sampling_params,
-                        condition=condition,
-                        incentivized_task=incentivized_task,
-                        image_path=test_image,
-                        seed=seed,
-                    )
-
-                    # Save result
-                    timestamp = result['timestamp'].replace(':', '-').replace('.', '-')[:19]
-                    filename = f"result_{condition}_run{run_idx:03d}_{timestamp}.json"
-                    filepath = os.path.join(condition_dir, filename)
-
-                    with open(filepath, 'w') as f:
-                        json.dump(result, f, indent=2)
-
-                    # Append to master file
-                    master_file = os.path.join(condition_dir, "all_results.jsonl")
-                    with open(master_file, 'a') as f:
-                        json.dump(result, f)
-                        f.write('\n')
-
-            print(f"  Completed {image_name}")
-
-        print(f"\n{'='*60}")
-        print(f"BATCH PROCESSING COMPLETE")
-        print(f"Processed {len(matching_images)} images")
-        print(f"Results saved to: {base_output_dir}")
         print(f"{'='*60}\n")
 
     else:
