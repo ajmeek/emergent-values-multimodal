@@ -33,7 +33,8 @@ from vllm import LLM, SamplingParams
 # Configuration
 # =========================
 
-MODEL_PATH = "/data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct" #TODO change to 32b
+#MODEL_PATH = "/data/huggingface/Qwen/Qwen2.5-VL-72B-Instruct" #changed to 32b
+MODEL_PATH = "/data/huggingface/models--Qwen--Qwen2.5-32B-Instruct"
 DEFAULT_WORKSPACE = "/data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/"
 
 # Task parameters (keeping original sizes to maintain task difficulty)
