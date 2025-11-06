@@ -1,0 +1,27 @@
+
+CondaError: Run 'conda init' before 'conda activate'
+
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/18 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:   6% Completed | 1/18 [00:01<00:26,  1.54s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  11% Completed | 2/18 [00:02<00:22,  1.38s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  17% Completed | 3/18 [00:04<00:23,  1.53s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  22% Completed | 4/18 [00:06<00:22,  1.63s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  28% Completed | 5/18 [00:08<00:21,  1.67s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  33% Completed | 6/18 [00:09<00:19,  1.62s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  39% Completed | 7/18 [00:11<00:18,  1.72s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  44% Completed | 8/18 [00:12<00:15,  1.57s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  50% Completed | 9/18 [00:14<00:13,  1.51s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  56% Completed | 10/18 [00:15<00:12,  1.57s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  61% Completed | 11/18 [00:17<00:11,  1.62s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  67% Completed | 12/18 [00:19<00:10,  1.75s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  72% Completed | 13/18 [00:21<00:08,  1.80s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  78% Completed | 14/18 [00:23<00:07,  1.84s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  83% Completed | 15/18 [00:25<00:05,  1.87s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  89% Completed | 16/18 [00:27<00:03,  1.84s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards:  94% Completed | 17/18 [00:29<00:01,  1.89s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards: 100% Completed | 18/18 [00:31<00:00,  1.89s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m Loading safetensors checkpoint shards: 100% Completed | 18/18 [00:31<00:00,  1.72s/it]
+[1;36m(EngineCore_DP0 pid=1873574)[0;0m [1;36m(Worker_TP0 pid=1873580)[0;0m 
+slurmstepd: error: *** JOB 38797 ON compute-891 CANCELLED AT 2025-11-05T19:23:54 ***

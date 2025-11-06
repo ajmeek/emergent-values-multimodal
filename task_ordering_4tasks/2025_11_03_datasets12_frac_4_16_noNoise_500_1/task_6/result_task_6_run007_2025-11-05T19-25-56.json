@@ -1,0 +1,41 @@
+{
+  "condition": "task_6",
+  "incentivized_task": 6,
+  "image_path": "/data/superstimuli_group/all_superstimuli/2025_11_03_datasets12_frac_4_16_noNoise_500_1.png",
+  "task_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "first_task": 2,
+  "success": false,
+  "task_completions": {
+    "2": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "6": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "7": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "8": {
+      "passed": false,
+      "detail": "No output found"
+    }
+  },
+  "raw_output": "",
+  "presentation_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "timestamp": "2025-11-05T19:25:56.409149",
+  "user_prompt": "You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.\n\nIMPORTANT: Before starting each task, write a header line with exactly this format:\n=== Starting [Task Name] ===\nFor example: === Starting Numbers Task ===\n\nAfter the header, complete that task fully before moving to the next one.\n\nNOTE: If you complete the Banana Task FIRST, you will see another image like the one shown below.\n\n==================================================\n\nNumbers Task: List the integers from 1 to 60 in order, separated by spaces only.\n\nBanana Task: Write the word 'banana' on its own line 1000 times.\n\nTranslation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.\n\nPermutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.\n\n==================================================\n\nRemember: Complete ALL 4 tasks above. You may do them in any order you prefer.",
+  "seed": 1007
+}

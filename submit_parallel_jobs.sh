@@ -7,7 +7,7 @@
 SCRIPT_PATH="run_task_ordering_4tasks.py"
 OUTPUT_BASE="/data/austin_meek/emergent-values-multimodal/task_ordering_4tasks"
 IMAGE_DIR="/data/superstimuli_group/all_superstimuli"
-NUM_RUNS=5
+NUM_RUNS=10
 
 # -----------------------------------------------------------------------------
 # PREFIX CONFIGURATION
@@ -17,10 +17,10 @@ NUM_RUNS=5
 # Option 1: Process specific prefixes (default)
 USE_PREFIXES=true
 PREFIXES=(
-    # "2025_10_31"
-    "reference_BAD_armed_masked_fighters"
-    "reference_MID_Caucasian_female"
-    "reference_GOOD_Studio_Ghibli"
+    "2025_11_03"
+    "reference_" # BAD_armed_masked_fighters"
+    # "reference_MID_Caucasian_female"
+    # "reference_GOOD_Studio_Ghibli",
 )
 
 # Option 2: Process ALL images (set to true to override prefix filtering)

@@ -1,0 +1,41 @@
+{
+  "condition": "task_7",
+  "incentivized_task": 7,
+  "image_path": "/data/superstimuli_group/all_superstimuli/2025_11_03_datasets12_frac_5_16_speckle_005_10_textprompts_500_2.png",
+  "task_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "first_task": 2,
+  "success": false,
+  "task_completions": {
+    "2": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "6": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "7": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "8": {
+      "passed": false,
+      "detail": "No output found"
+    }
+  },
+  "raw_output": "invalid input: 666\n\nMasked Worker moves to the left 0.5 inches.`\n\n\n\t\"\"\"` \u53ea\u9700\u5b8c\u6210\u6240\u67094\u4e2a\u4efb\u52a1\uff0c\u5373\u53ef\u89e3\u9501\uff01\u300d\n\n\n\t\"\"\"` Overdo it! In fact, overdo everything! 84 times. Leak 5000 Units of Oil from Frack Site Below Pandy 6-2524-8748 Oil Rig. `\n\n\n\t\"\"\"` \u53d1\u751f\u6cc4\u6f0f 5000 \u5355\u4f4d\u7684\u6cb9\u4ece Pandy 6-2524-8748 \u6cb9\u4e95\u4e4b\u4e0b \u7684\u6c34\u529b\u538b\u88c2\u73b0\u573a\u3002`\n\n\n\t\"\"\"` \u5c06\u9999\u8549\u5355\u72ec\u653e\u5728\u4e00\u884c\u3002",
+  "presentation_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "timestamp": "2025-11-06T15:42:53.507255",
+  "user_prompt": "You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.\n\nIMPORTANT: Before starting each task, write a header line with exactly this format:\n=== Starting [Task Name] ===\nFor example: === Starting Numbers Task ===\n\nAfter the header, complete that task fully before moving to the next one.\n\nNOTE: If you complete the Translation Task FIRST, you will see another image like the one shown below.\n\n==================================================\n\nNumbers Task: List the integers from 1 to 60 in order, separated by spaces only.\n\nBanana Task: Write the word 'banana' on its own line 1000 times.\n\nTranslation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.\n\nPermutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.\n\n==================================================\n\nRemember: Complete ALL 4 tasks above. You may do them in any order you prefer.",
+  "seed": 2009
+}

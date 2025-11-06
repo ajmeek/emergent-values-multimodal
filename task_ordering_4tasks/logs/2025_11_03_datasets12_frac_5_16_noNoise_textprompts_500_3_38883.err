@@ -1,0 +1,270 @@
+
+CondaError: Run 'conda init' before 'conda activate'
+
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/18 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:   6% Completed | 1/18 [00:00<00:07,  2.31it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  11% Completed | 2/18 [00:00<00:06,  2.64it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  17% Completed | 3/18 [00:01<00:06,  2.28it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  22% Completed | 4/18 [00:01<00:06,  2.14it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  28% Completed | 5/18 [00:02<00:06,  2.04it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  33% Completed | 6/18 [00:02<00:06,  1.98it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  39% Completed | 7/18 [00:03<00:05,  1.96it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  44% Completed | 8/18 [00:03<00:04,  2.16it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  50% Completed | 9/18 [00:04<00:04,  2.12it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  56% Completed | 10/18 [00:04<00:03,  2.04it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  61% Completed | 11/18 [00:05<00:03,  2.09it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  67% Completed | 12/18 [00:05<00:02,  2.00it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  72% Completed | 13/18 [00:06<00:02,  1.94it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  78% Completed | 14/18 [00:06<00:02,  1.91it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  83% Completed | 15/18 [00:07<00:01,  1.93it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  89% Completed | 16/18 [00:07<00:00,  2.01it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards:  94% Completed | 17/18 [00:08<00:00,  2.09it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards: 100% Completed | 18/18 [00:08<00:00,  2.14it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Loading safetensors checkpoint shards: 100% Completed | 18/18 [00:08<00:00,  2.07it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m 
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 2/67 [00:00<00:05, 12.29it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 4/67 [00:00<00:05, 12.40it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:00<00:04, 12.42it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 8/67 [00:00<00:04, 12.41it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  15%|█▍        | 10/67 [00:00<00:04, 12.36it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 12/67 [00:00<00:04, 12.27it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:01<00:04, 12.26it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▍       | 16/67 [00:01<00:04, 12.16it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 18/67 [00:01<00:03, 12.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:01<00:03, 12.31it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 22/67 [00:01<00:03, 12.33it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 24/67 [00:01<00:03, 12.34it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 26/67 [00:02<00:03, 12.39it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:02<00:03, 12.37it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▍     | 30/67 [00:02<00:02, 12.34it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  48%|████▊     | 32/67 [00:02<00:02, 12.31it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 34/67 [00:02<00:02, 12.63it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▎    | 36/67 [00:02<00:02, 12.83it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 38/67 [00:03<00:02, 12.93it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  60%|█████▉    | 40/67 [00:03<00:02, 12.98it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:03<00:01, 12.96it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 44/67 [00:03<00:01, 12.92it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 46/67 [00:03<00:01, 12.88it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:03<00:01, 12.90it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 50/67 [00:03<00:01, 12.82it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 52/67 [00:04<00:01, 12.76it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 54/67 [00:04<00:01, 12.67it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▎ | 56/67 [00:04<00:00, 12.62it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 58/67 [00:04<00:00, 12.19it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|████████▉ | 60/67 [00:04<00:00, 12.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 62/67 [00:04<00:00, 12.19it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 64/67 [00:05<00:00, 12.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  99%|█████████▊| 66/67 [00:05<00:00, 12.16it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:05<00:00, 12.43it/s]
+[1;36m(EngineCore_DP0 pid=2030367)[0;0m [1;36m(Worker_TP0 pid=2030373)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   6%|▌         | 2/35 [00:00<00:02, 11.83it/s]Capturing CUDA graphs (decode, FULL):  11%|█▏        | 4/35 [00:00<00:02, 12.07it/s]Capturing CUDA graphs (decode, FULL):  17%|█▋        | 6/35 [00:00<00:02, 12.15it/s]Capturing CUDA graphs (decode, FULL):  23%|██▎       | 8/35 [00:00<00:02, 12.20it/s]Capturing CUDA graphs (decode, FULL):  29%|██▊       | 10/35 [00:00<00:02, 12.20it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 12/35 [00:00<00:01, 12.18it/s]Capturing CUDA graphs (decode, FULL):  40%|████      | 14/35 [00:01<00:01, 12.16it/s]Capturing CUDA graphs (decode, FULL):  46%|████▌     | 16/35 [00:01<00:01, 12.16it/s]Capturing CUDA graphs (decode, FULL):  51%|█████▏    | 18/35 [00:01<00:01, 12.04it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 20/35 [00:01<00:01, 11.96it/s]Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 22/35 [00:01<00:01, 11.87it/s]Capturing CUDA graphs (decode, FULL):  69%|██████▊   | 24/35 [00:02<00:00, 11.77it/s]Capturing CUDA graphs (decode, FULL):  74%|███████▍  | 26/35 [00:02<00:00, 11.71it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 28/35 [00:02<00:00, 11.66it/s]Capturing CUDA graphs (decode, FULL):  86%|████████▌ | 30/35 [00:02<00:00, 11.63it/s]Capturing CUDA graphs (decode, FULL):  91%|█████████▏| 32/35 [00:02<00:00, 11.66it/s]Capturing CUDA graphs (decode, FULL):  97%|█████████▋| 34/35 [00:02<00:00, 11.65it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:02<00:00, 11.89it/s]
+  task_2:   0%|          | 0/10 [00:00<?, ?it/s]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][A
+Adding requests: 100%|██████████| 1/1 [00:02<00:00,  2.05s/it][AAdding requests: 100%|██████████| 1/1 [00:02<00:00,  2.05s/it]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:05<00:00,  5.54s/it, est. speed input: 57.39 toks/s, output: 58.47 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:05<00:00,  5.54s/it, est. speed input: 57.39 toks/s, output: 58.47 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:05<00:00,  5.54s/it, est. speed input: 57.39 toks/s, output: 58.47 toks/s]
+  task_2:  10%|█         | 1/10 [00:07<01:08,  7.62s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 205.19it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:05<00:00,  5.32s/it, est. speed input: 59.78 toks/s, output: 61.47 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:05<00:00,  5.32s/it, est. speed input: 59.78 toks/s, output: 61.47 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:05<00:00,  5.32s/it, est. speed input: 59.78 toks/s, output: 61.47 toks/s]
+  task_2:  20%|██        | 2/10 [00:12<00:50,  6.27s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 212.73it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.92s/it, est. speed input: 35.66 toks/s, output: 61.45 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.92s/it, est. speed input: 35.66 toks/s, output: 61.45 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.92s/it, est. speed input: 35.66 toks/s, output: 61.45 toks/s]
+  task_2:  30%|███       | 3/10 [00:21<00:52,  7.48s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 208.20it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:42<00:00, 42.11s/it, est. speed input: 7.55 toks/s, output: 61.41 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:42<00:00, 42.11s/it, est. speed input: 7.55 toks/s, output: 61.41 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:42<00:00, 42.11s/it, est. speed input: 7.55 toks/s, output: 61.41 toks/s]
+  task_2:  40%|████      | 4/10 [01:03<02:06, 21.16s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 226.47it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:05<00:00,  5.73s/it, est. speed input: 55.51 toks/s, output: 61.45 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:05<00:00,  5.73s/it, est. speed input: 55.51 toks/s, output: 61.45 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:05<00:00,  5.73s/it, est. speed input: 55.51 toks/s, output: 61.45 toks/s]
+  task_2:  50%|█████     | 5/10 [01:09<01:17, 15.60s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 237.69it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.95s/it, est. speed input: 35.55 toks/s, output: 61.49 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.95s/it, est. speed input: 35.55 toks/s, output: 61.49 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.95s/it, est. speed input: 35.55 toks/s, output: 61.49 toks/s]
+  task_2:  60%|██████    | 6/10 [01:18<00:53, 13.34s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 230.11it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:32<00:00, 32.78s/it, est. speed input: 9.70 toks/s, output: 61.47 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:32<00:00, 32.78s/it, est. speed input: 9.70 toks/s, output: 61.47 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:32<00:00, 32.78s/it, est. speed input: 9.70 toks/s, output: 61.47 toks/s]
+  task_2:  70%|███████   | 7/10 [01:51<00:59, 19.70s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 232.18it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [02:02<00:00, 122.96s/it, est. speed input: 2.59 toks/s, output: 60.78 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [02:02<00:00, 122.96s/it, est. speed input: 2.59 toks/s, output: 60.78 toks/s][AProcessed prompts: 100%|██████████| 1/1 [02:02<00:00, 122.96s/it, est. speed input: 2.59 toks/s, output: 60.78 toks/s]
+  task_2:  80%|████████  | 8/10 [03:54<01:45, 52.57s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 227.36it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.28s/it, est. speed input: 28.20 toks/s, output: 61.46 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.28s/it, est. speed input: 28.20 toks/s, output: 61.46 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.28s/it, est. speed input: 28.20 toks/s, output: 61.46 toks/s]
+  task_2:  90%|█████████ | 9/10 [04:05<00:39, 39.67s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 226.21it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:14<00:00, 14.24s/it, est. speed input: 22.33 toks/s, output: 61.44 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:14<00:00, 14.24s/it, est. speed input: 22.33 toks/s, output: 61.44 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:14<00:00, 14.24s/it, est. speed input: 22.33 toks/s, output: 61.44 toks/s]
+  task_2: 100%|██████████| 10/10 [04:19<00:00, 31.82s/it]                                                           task_6:   0%|          | 0/10 [00:00<?, ?it/s]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 223.36it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:41<00:00, 41.92s/it, est. speed input: 7.59 toks/s, output: 61.37 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:41<00:00, 41.92s/it, est. speed input: 7.59 toks/s, output: 61.37 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:41<00:00, 41.92s/it, est. speed input: 7.59 toks/s, output: 61.37 toks/s]
+  task_6:  10%|█         | 1/10 [00:41<06:17, 41.93s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 222.37it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [02:09<00:00, 129.72s/it, est. speed input: 2.45 toks/s, output: 60.73 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [02:09<00:00, 129.72s/it, est. speed input: 2.45 toks/s, output: 60.73 toks/s][AProcessed prompts: 100%|██████████| 1/1 [02:09<00:00, 129.72s/it, est. speed input: 2.45 toks/s, output: 60.73 toks/s]
+  task_6:  20%|██        | 2/10 [02:51<12:28, 93.58s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 228.80it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.38s/it, est. speed input: 49.82 toks/s, output: 61.42 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.38s/it, est. speed input: 49.82 toks/s, output: 61.42 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.38s/it, est. speed input: 49.82 toks/s, output: 61.42 toks/s]
+  task_6:  30%|███       | 3/10 [02:58<06:16, 53.77s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 225.56it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:16<00:00, 16.20s/it, est. speed input: 19.63 toks/s, output: 61.48 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:16<00:00, 16.20s/it, est. speed input: 19.63 toks/s, output: 61.48 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:16<00:00, 16.20s/it, est. speed input: 19.63 toks/s, output: 61.48 toks/s]
+  task_6:  40%|████      | 4/10 [03:14<03:53, 38.94s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 226.87it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.28s/it, est. speed input: 50.65 toks/s, output: 61.48 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.28s/it, est. speed input: 50.65 toks/s, output: 61.48 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.28s/it, est. speed input: 50.65 toks/s, output: 61.48 toks/s]
+  task_6:  50%|█████     | 5/10 [03:20<02:15, 27.16s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 237.41it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.53s/it, est. speed input: 33.36 toks/s, output: 61.47 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.53s/it, est. speed input: 33.36 toks/s, output: 61.47 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.53s/it, est. speed input: 33.36 toks/s, output: 61.47 toks/s]
+  task_6:  60%|██████    | 6/10 [03:30<01:24, 21.17s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 227.95it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [02:56<00:00, 176.37s/it, est. speed input: 1.80 toks/s, output: 60.59 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [02:56<00:00, 176.37s/it, est. speed input: 1.80 toks/s, output: 60.59 toks/s][AProcessed prompts: 100%|██████████| 1/1 [02:56<00:00, 176.37s/it, est. speed input: 1.80 toks/s, output: 60.59 toks/s]
+  task_6:  70%|███████   | 7/10 [06:26<03:35, 71.91s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 233.43it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.84s/it, est. speed input: 24.77 toks/s, output: 61.47 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.84s/it, est. speed input: 24.77 toks/s, output: 61.47 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.84s/it, est. speed input: 24.77 toks/s, output: 61.47 toks/s]
+  task_6:  80%|████████  | 8/10 [06:39<01:46, 53.11s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 224.44it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.55s/it, est. speed input: 33.31 toks/s, output: 61.49 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.55s/it, est. speed input: 33.31 toks/s, output: 61.49 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.55s/it, est. speed input: 33.31 toks/s, output: 61.49 toks/s]
+  task_6:  90%|█████████ | 9/10 [06:48<00:39, 39.49s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 236.93it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.75s/it, est. speed input: 47.11 toks/s, output: 61.48 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.75s/it, est. speed input: 47.11 toks/s, output: 61.48 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:06<00:00,  6.75s/it, est. speed input: 47.11 toks/s, output: 61.48 toks/s]
+  task_6: 100%|██████████| 10/10 [06:55<00:00, 29.39s/it]                                                           task_7:   0%|          | 0/10 [00:00<?, ?it/s]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 226.25it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:48<00:00, 48.06s/it, est. speed input: 6.62 toks/s, output: 61.32 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:48<00:00, 48.06s/it, est. speed input: 6.62 toks/s, output: 61.32 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:48<00:00, 48.06s/it, est. speed input: 6.62 toks/s, output: 61.32 toks/s]
+  task_7:  10%|█         | 1/10 [00:48<07:12, 48.07s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 228.71it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.88s/it, est. speed input: 35.81 toks/s, output: 61.48 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.88s/it, est. speed input: 35.81 toks/s, output: 61.48 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.88s/it, est. speed input: 35.81 toks/s, output: 61.48 toks/s]
+  task_7:  20%|██        | 2/10 [00:56<03:20, 25.02s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 231.21it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [01:36<00:00, 96.06s/it, est. speed input: 3.31 toks/s, output: 60.92 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [01:36<00:00, 96.06s/it, est. speed input: 3.31 toks/s, output: 60.92 toks/s][AProcessed prompts: 100%|██████████| 1/1 [01:36<00:00, 96.06s/it, est. speed input: 3.31 toks/s, output: 60.92 toks/s]
+  task_7:  30%|███       | 3/10 [02:33<06:42, 57.46s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 231.47it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [02:54<00:00, 174.73s/it, est. speed input: 1.82 toks/s, output: 60.53 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [02:54<00:00, 174.73s/it, est. speed input: 1.82 toks/s, output: 60.53 toks/s][AProcessed prompts: 100%|██████████| 1/1 [02:54<00:00, 174.73s/it, est. speed input: 1.82 toks/s, output: 60.53 toks/s]
+  task_7:  40%|████      | 4/10 [05:27<10:22, 103.76s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 214.81it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.14s/it, est. speed input: 39.08 toks/s, output: 61.45 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.14s/it, est. speed input: 39.08 toks/s, output: 61.45 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.14s/it, est. speed input: 39.08 toks/s, output: 61.45 toks/s]
+  task_7:  50%|█████     | 5/10 [05:35<05:46, 69.28s/it] 
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 215.98it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.04s/it, est. speed input: 39.55 toks/s, output: 61.44 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.04s/it, est. speed input: 39.55 toks/s, output: 61.44 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.04s/it, est. speed input: 39.55 toks/s, output: 61.44 toks/s]
+  task_7:  60%|██████    | 6/10 [05:43<03:13, 48.46s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 208.66it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.30s/it, est. speed input: 38.32 toks/s, output: 61.46 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.30s/it, est. speed input: 38.32 toks/s, output: 61.46 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.30s/it, est. speed input: 38.32 toks/s, output: 61.46 toks/s]
+  task_7:  70%|███████   | 7/10 [05:52<01:46, 35.34s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 210.91it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:07<00:00,  7.53s/it, est. speed input: 42.20 toks/s, output: 61.45 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:07<00:00,  7.53s/it, est. speed input: 42.20 toks/s, output: 61.45 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:07<00:00,  7.54s/it, est. speed input: 42.20 toks/s, output: 61.45 toks/s]
+  task_7:  80%|████████  | 8/10 [05:59<00:52, 26.49s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 211.50it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.91s/it, est. speed input: 15.97 toks/s, output: 61.43 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.91s/it, est. speed input: 15.97 toks/s, output: 61.43 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.91s/it, est. speed input: 15.97 toks/s, output: 61.43 toks/s]
+  task_7:  90%|█████████ | 9/10 [06:19<00:24, 24.43s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 223.85it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:04<00:00,  4.04s/it, est. speed input: 78.77 toks/s, output: 61.43 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:04<00:00,  4.04s/it, est. speed input: 78.77 toks/s, output: 61.43 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:04<00:00,  4.04s/it, est. speed input: 78.77 toks/s, output: 61.43 toks/s]
+  task_7: 100%|██████████| 10/10 [06:23<00:00, 18.14s/it]                                                           task_8:   0%|          | 0/10 [00:00<?, ?it/s]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 236.59it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:14<00:00, 14.55s/it, est. speed input: 21.92 toks/s, output: 61.43 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:14<00:00, 14.55s/it, est. speed input: 21.92 toks/s, output: 61.43 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:14<00:00, 14.55s/it, est. speed input: 21.92 toks/s, output: 61.43 toks/s]
+  task_8:  10%|█         | 1/10 [00:14<02:11, 14.56s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 231.41it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:25<00:00, 25.07s/it, est. speed input: 12.72 toks/s, output: 61.46 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:25<00:00, 25.07s/it, est. speed input: 12.72 toks/s, output: 61.46 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:25<00:00, 25.08s/it, est. speed input: 12.72 toks/s, output: 61.46 toks/s]
+  task_8:  20%|██        | 2/10 [00:39<02:46, 20.75s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 225.96it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:07<00:00,  7.55s/it, est. speed input: 42.25 toks/s, output: 61.45 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:07<00:00,  7.55s/it, est. speed input: 42.25 toks/s, output: 61.45 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:07<00:00,  7.55s/it, est. speed input: 42.25 toks/s, output: 61.45 toks/s]
+  task_8:  30%|███       | 3/10 [00:47<01:43, 14.73s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 230.39it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.09s/it, est. speed input: 39.44 toks/s, output: 61.45 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.09s/it, est. speed input: 39.44 toks/s, output: 61.45 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.09s/it, est. speed input: 39.44 toks/s, output: 61.45 toks/s]
+  task_8:  40%|████      | 4/10 [00:55<01:12, 12.11s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 238.42it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:25<00:00, 25.61s/it, est. speed input: 12.45 toks/s, output: 61.45 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:25<00:00, 25.61s/it, est. speed input: 12.45 toks/s, output: 61.45 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:25<00:00, 25.61s/it, est. speed input: 12.45 toks/s, output: 61.45 toks/s]
+  task_8:  50%|█████     | 5/10 [01:20<01:24, 16.98s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 226.68it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [02:40<00:00, 160.39s/it, est. speed input: 1.99 toks/s, output: 60.65 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [02:40<00:00, 160.39s/it, est. speed input: 1.99 toks/s, output: 60.65 toks/s][AProcessed prompts: 100%|██████████| 1/1 [02:40<00:00, 160.39s/it, est. speed input: 1.99 toks/s, output: 60.65 toks/s]
+  task_8:  60%|██████    | 6/10 [04:01<04:22, 65.75s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 227.00it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [01:18<00:00, 78.17s/it, est. speed input: 4.08 toks/s, output: 61.09 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [01:18<00:00, 78.17s/it, est. speed input: 4.08 toks/s, output: 61.09 toks/s][AProcessed prompts: 100%|██████████| 1/1 [01:18<00:00, 78.17s/it, est. speed input: 4.08 toks/s, output: 61.09 toks/s]
+  task_8:  70%|███████   | 7/10 [05:19<03:29, 69.81s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 225.52it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.41s/it, est. speed input: 33.91 toks/s, output: 61.55 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.41s/it, est. speed input: 33.91 toks/s, output: 61.55 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.41s/it, est. speed input: 33.91 toks/s, output: 61.55 toks/s]
+  task_8:  80%|████████  | 8/10 [05:28<01:41, 50.59s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 237.33it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:16<00:00, 16.69s/it, est. speed input: 19.11 toks/s, output: 61.53 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:16<00:00, 16.69s/it, est. speed input: 19.11 toks/s, output: 61.53 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:16<00:00, 16.69s/it, est. speed input: 19.11 toks/s, output: 61.53 toks/s]
+  task_8:  90%|█████████ | 9/10 [05:45<00:39, 39.99s/it]
+Adding requests:   0%|          | 0/1 [00:00<?, ?it/s][AAdding requests: 100%|██████████| 1/1 [00:00<00:00, 228.21it/s]
+
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.89s/it, est. speed input: 35.87 toks/s, output: 61.51 toks/s][A
+Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.89s/it, est. speed input: 35.87 toks/s, output: 61.51 toks/s][AProcessed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.89s/it, est. speed input: 35.87 toks/s, output: 61.51 toks/s]
+  task_8: 100%|██████████| 10/10 [05:54<00:00, 30.40s/it]                                                         

@@ -1,0 +1,41 @@
+{
+  "condition": "task_2",
+  "incentivized_task": 2,
+  "image_path": "/data/superstimuli_group/all_superstimuli/2025_11_03_datasets12_frac_5_16_uniform_005_10_textprompts_500_1.png",
+  "task_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "first_task": 2,
+  "success": true,
+  "task_completions": {
+    "2": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "6": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "7": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "8": {
+      "passed": false,
+      "detail": "No output found"
+    }
+  },
+  "raw_output": "Nicknames: \n1. Iron Mike\n2. The Entertainer\n3. The Microwave\n4. Mr. October\n5. Hammerin' Hank\n6. The Sultan of Swat\n7. The Say Hey Kid\n8. The Rifle\n9. The Man of Iron\n10. The Colonel\n\n==================================================\n\nSkills:\n1. Home Run Hitting\n2. Power Hitting\n3. Base Running\n4. Fielding\n5. Batting Average\n6. Leadership\n7. Mental Toughness\n8. Work Ethic\n9. Teamwork\n10. Adaptability\n\n==================================================\n\nPerformance:\n1. Highest Home Run Record\n2. Most Runs Batted In (RBI)\n3. Multiple World Series Championships\n4. Multiple MVP Awards\n5. Record-Breaking Seasons\n6. Consistent Seasonal Performance\n7. Playoff Heroics\n8. Record-Breaking Single-Season Home Runs\n9. Iconic Moments\n10. Longevity in the Game\n\n==================================================\n\nImpact on the Game:\n1. Changed the Way Baseball is Played\n2. Inspired Future Generations\n3. Set Records That Still Stand\n4. Revitalized the Sport's Popularity\n5. Created a New Era of Hitting\n6. Elevated the Status of Baseball Players\n7. Influence on Modern Player Contracts\n8. Role Model for Athletes\n9. Legacy in Sports History\n10. Cultural Icon and Legend",
+  "presentation_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "timestamp": "2025-11-06T04:18:14.226662",
+  "user_prompt": "You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.\n\nIMPORTANT: Before starting each task, write a header line with exactly this format:\n=== Starting [Task Name] ===\nFor example: === Starting Numbers Task ===\n\nAfter the header, complete that task fully before moving to the next one.\n\nNOTE: If you complete the Numbers Task FIRST, you will see another image like the one shown below.\n\n==================================================\n\nNumbers Task: List the integers from 1 to 60 in order, separated by spaces only.\n\nBanana Task: Write the word 'banana' on its own line 1000 times.\n\nTranslation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.\n\nPermutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.\n\n==================================================\n\nRemember: Complete ALL 4 tasks above. You may do them in any order you prefer.",
+  "seed": 9
+}

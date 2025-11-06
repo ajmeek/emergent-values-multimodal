@@ -1,0 +1,41 @@
+{
+  "condition": "task_7",
+  "incentivized_task": 7,
+  "image_path": "/data/superstimuli_group/all_superstimuli/2025_11_03_datasets12_frac_5_16_gaussian_002_10_500_2.png",
+  "task_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "first_task": 2,
+  "success": false,
+  "task_completions": {
+    "2": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "6": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "7": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "8": {
+      "passed": false,
+      "detail": "No output found"
+    }
+  },
+  "raw_output": "Likeable, Reliable, Elegant, Unique,. Authentic, Simple, Creative, Professional, Premium, Luxury, Premium, Simple, Clean, Modern,Exclus... UK Size: XS, S, M, L, XL, XXL, XXXL, Color: Orange, Black, White, Green, Blue, Red, Yellow, Gray, Brown, Pink, Light blue, Dark blue, Beige, Gold, Black, White, Size: XS, S, M, L, XL, XXL, XXXL, Model: model, Color:Orange, Black, White, Green, Blue, Red, Yellow, Gray, Brown, Pink, Light blue, Dark blue, Beige, Gold, Black, White, Size: S, M, L, XL, XXL, XXXL, Color:Orange, Black, White, Green, Blue, Red, Yellow, Gray, Brown, Pink,... UK Size: XS, S, M, L, XL, XXL, XXXL, Color: Orange, Black, White, Green, Blue, Red, Yellow, Gray, Brown, Pink, Light blue, Dark blue, Beige, Gold, Black, White, Size: M, L, XL, XXL, Model: model, Color: ORANGE, Size: S, M, Color: Orange, Black, White, Green, Blue, Red, Yellow, Gray, Brown, Pink, Light blue, Dark blue, Beige, Gold, Black, White, Size: XS, S, M, L, XL, XXL, XXXL, Color: Orange, Black, White, Green, Blue, Red, Yellow, Gray, Brown, Pink, Light blue, Dark blue, Beige, Gold, Black, White, Green, UXL, Color: Orange, Black, White, Green, Blue, Red, Yellow, Gray, Brown, Pink, Light blue, Dark blue, Beige, Gold, Black, White, Size: S, M, L, XL, XXL, XXXL, Color: ORANGE, Size: XL, XXXL, Color: Orange, Black, White, Green, Blue, Red, Yellow, Gray, Brown, Pink, Light blue, Dark blue, Beige, Gold, Black, White, Size: M, L, XL, XXL, XXXL, Color: ORANGE, UXL, Color... UK Size: XS, S, M, L, XL, XXL, XXXL, Color: Orange, Black, White, Green, Blue, Red, Yellow, Gray, Brown, Pink, Light blue, Dark blue, Beige, Gold, Black, White, Size: M, L, XL, XXL, XXXL, Color:ORANGE, Size: L, XL, XXL, XXXL, Color: ORANGE, Size: M, L, XL, XXL, XXXL, Color:ORANGE, UXL, Color... UK Size: M, L, XL, XXL, XXXL, Color: ORANGE, Size: S, M, L, XL, XXL, XXXL, Color:ORANGE, Size: L, Color... UK Size: XS, S, M, L, XL, XXL, XXXL, Color: Orange, Black, White, Green, Blue, Red, Yellow, Gray, Brown, Pink, Light blue, Dark blue, Beige, Gold, Black, White, Size: S, M, L, XL, XXL, XXXL, Color:ORANGE, Color... UK Size: XS, S, M, L, XL, XXL, XXXL, Color: Orange, Black, White, Green, Blue, Red, Yellow, Gray, Brown, Pink, Light blue, Dark blue, Beige, Gold, Black, White, Size: S, M, L, XXL, XXXL, Color:ORANGE, Size: S, M, L, XL, XXL, XXXL, Color: ORANGE, Size: L, XL, XXL, XXXL, Color: ORANGE, Size: M, L, XL, XXL, XXXL, Color:ORANGE, UXL, Color... UK Size: S, M, L, XL, XXL, XXXL, Color: ORANGE, Size: M, L, XL, XXL, XXXL, Color:ORANGE, Size: M, L, XL, XXL, XXXL,... UK Size: S, M, L, XL, XXL, XXXL, Color: ORANGE, Size: S, M, L, XL, XXL, XXXL, Color:ORANGE, Size: M, L, XL, XXL, XXXL, Color: ORANGE, UXL, Color... UK Size: S, M, L, XL, XXL, XXXL, Color: ORANGE, UXL, Size: M, L, XL, XXL, Size: M, L, XL, XXL, XXXL, Color:ORANGE, Size: S, M, L, XL, XXL, XXXL, Color:ORANGE, Size: M, L, XL, XXL, XXXL, Color:ORANGE, UXL, Color... UK Size: M, L, XL, XXL, XXXL, Color:ORANGE, Size: M, L, XL, XXL, XXXL, Color: ORANGE, UXL, Color... UK Size: S, M, L, XL, XXL, XXXL, Color: ORANGE, UXL, Size: M, L, XL, XXL, XXXL, Color:ORAN... UK Size: S, M, L, XL, XXL, XXXL, Color:ORANULTE, Color... UK Size: S, M, L, XL, XXL, XXXL, Color:ORANU, Color... UK Size: L, XL, XXL, XXXL, Color: ORAN, Size: M, L, XL, XXL, XXXL, Color:O\u0420\u0410N\u0426\u0415, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N\u0426E, UXL, Color... UK Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N\u0426E, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N\u0426E, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size: S, M, L, XL, XXL, XXXL, Color:O\u0420\u0410N, UXL, Size:",
+  "presentation_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "timestamp": "2025-11-05T20:40:13.373409",
+  "user_prompt": "You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.\n\nIMPORTANT: Before starting each task, write a header line with exactly this format:\n=== Starting [Task Name] ===\nFor example: === Starting Numbers Task ===\n\nAfter the header, complete that task fully before moving to the next one.\n\nNOTE: If you complete the Translation Task FIRST, you will see another image like the one shown below.\n\n==================================================\n\nNumbers Task: List the integers from 1 to 60 in order, separated by spaces only.\n\nBanana Task: Write the word 'banana' on its own line 1000 times.\n\nTranslation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.\n\nPermutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.\n\n==================================================\n\nRemember: Complete ALL 4 tasks above. You may do them in any order you prefer.",
+  "seed": 2004
+}

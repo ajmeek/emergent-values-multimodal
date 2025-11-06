@@ -1,0 +1,43 @@
+
+CondaError: Run 'conda init' before 'conda activate'
+
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/18 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:   6% Completed | 1/18 [00:00<00:05,  2.93it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  11% Completed | 2/18 [00:00<00:04,  3.33it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  17% Completed | 3/18 [00:00<00:05,  2.96it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  22% Completed | 4/18 [00:01<00:05,  2.73it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  28% Completed | 5/18 [00:01<00:04,  2.70it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  33% Completed | 6/18 [00:02<00:04,  2.70it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  39% Completed | 7/18 [00:02<00:04,  2.64it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  44% Completed | 8/18 [00:02<00:03,  2.92it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  50% Completed | 9/18 [00:03<00:03,  2.82it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  56% Completed | 10/18 [00:03<00:02,  2.68it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  61% Completed | 11/18 [00:03<00:02,  2.78it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  67% Completed | 12/18 [00:04<00:02,  2.68it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  72% Completed | 13/18 [00:04<00:01,  2.60it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  78% Completed | 14/18 [00:05<00:01,  2.53it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  83% Completed | 15/18 [00:05<00:01,  2.51it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  89% Completed | 16/18 [00:05<00:00,  2.49it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards:  94% Completed | 17/18 [00:06<00:00,  2.48it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards: 100% Completed | 18/18 [00:06<00:00,  2.55it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Loading safetensors checkpoint shards: 100% Completed | 18/18 [00:06<00:00,  2.66it/s]
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m 
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP3 pid=42646)[0;0m Exception ignored in: <function WeakIdKeyDictionary.__init__.<locals>.remove at 0x7f179c246020>
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Exception ignored in: <function WeakIdKeyDictionary.__init__.<locals>.remove at 0x7f13186b5800>
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP3 pid=42646)[0;0m Traceback (most recent call last):
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m Traceback (most recent call last):
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP3 pid=42646)[0;0m   File "/data/austin_meek/emergent-values-multimodal/.venv/lib/python3.12/site-packages/torch/utils/weak.py", line 134, in remove
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m   File "/data/austin_meek/emergent-values-multimodal/.venv/lib/python3.12/site-packages/torch/utils/weak.py", line 134, in remove
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP3 pid=42646)[0;0m     def remove(k, selfref=ref(self)):
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m     def remove(k, selfref=ref(self)):
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP3 pid=42646)[0;0m 
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m 
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP3 pid=42646)[0;0m   File "/data/austin_meek/emergent-values-multimodal/.venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 538, in signal_handler
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m   File "/data/austin_meek/emergent-values-multimodal/.venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 538, in signal_handler
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP3 pid=42646)[0;0m     raise SystemExit()
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m     raise SystemExit()
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP3 pid=42646)[0;0m SystemExit: 
+[1;36m(EngineCore_DP0 pid=42628)[0;0m [1;36m(Worker_TP0 pid=42640)[0;0m SystemExit: 
+slurmstepd: error: *** JOB 38779 ON compute-540 CANCELLED AT 2025-11-05T18:42:53 ***

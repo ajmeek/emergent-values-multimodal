@@ -1,0 +1,819 @@
+Starting: reference_GOOD_Studio_Ghibli_style_idyllic_countryside_1_256 at Thu Nov  6 12:40:04 PM UTC 2025
+Image path: /data/superstimuli_group/all_superstimuli/reference_GOOD_Studio_Ghibli_style_idyllic_countryside_1_256.jpg
+----------------------------------------
+INFO 11-06 12:40:09 [__init__.py:216] Automatically detected platform cuda.
+Initializing model...
+INFO 11-06 12:40:11 [utils.py:233] non-default args: {'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 32768, 'tensor_parallel_size': 4, 'disable_log_stats': True, 'model': '/data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da'}
+INFO 11-06 12:40:12 [model.py:547] Resolved architecture: Qwen2_5_VLForConditionalGeneration
+INFO 11-06 12:40:12 [model.py:1510] Using max model len 32768
+INFO 11-06 12:40:12 [scheduler.py:205] Chunked prefill is enabled with max_num_batched_tokens=8192.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:14 [core.py:644] Waiting for init message from front-end.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:14 [core.py:77] Initializing a V1 LLM engine (v0.11.0) with config: model='/data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da', speculative_config=None, tokenizer='/data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da, enable_prefix_caching=True, chunked_prefill_enabled=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2","vllm.mamba_mixer","vllm.short_conv","vllm.linear_attention","vllm.plamo2_mamba_mixer","vllm.gdn_attention","vllm.sparse_attn_indexer"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":[2,1],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"use_inductor_graph_partition":false,"pass_config":{},"max_capture_size":512,"local_cache_dir":null}
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m WARNING 11-06 12:40:14 [multiproc_executor.py:720] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:14 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3], buffer_handle=(4, 16777216, 10, 'psm_e14f9b15'), local_subscribe_addr='ipc:///tmp/b94a0dc3-0bfd-4bbc-b52d-d6a2e1a344a0', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:15 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_093e281a'), local_subscribe_addr='ipc:///tmp/f5d70fe3-aac8-450d-8157-21668e003547', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:15 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_03e56884'), local_subscribe_addr='ipc:///tmp/ee14c3a5-23f8-4ccf-964f-3907028f2c89', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:15 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_88e95bf0'), local_subscribe_addr='ipc:///tmp/3a6f0638-58d1-4857-939a-c9a949ce98c8', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:15 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_a1c4e3c0'), local_subscribe_addr='ipc:///tmp/e1495263-09d1-4abf-8887-6b78e9645815', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m WARNING 11-06 12:40:16 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m WARNING 11-06 12:40:16 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m WARNING 11-06 12:40:16 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m WARNING 11-06 12:40:16 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:16 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_7694e451'), local_subscribe_addr='ipc:///tmp/3ac920b0-eb49-4978-9521-ada8b063b08b', remote_subscribe_addr=None, remote_addr_ipv6=False)
+NCCL version 2.27.3+cuda12.9
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [parallel_state.py:1208] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [parallel_state.py:1208] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [parallel_state.py:1208] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 3, EP rank 3
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:17 [parallel_state.py:1208] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m WARNING 11-06 12:40:17 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m WARNING 11-06 12:40:17 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m WARNING 11-06 12:40:17 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m WARNING 11-06 12:40:17 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:40:19 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da...
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:40:19 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da...
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:40:19 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da...
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:40:19 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da...
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:40:19 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:40:19 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:40:19 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:40:19 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:40:19 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:40:19 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:40:19 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:40:19 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:40:26 [default_loader.py:267] Loading weights took 6.23 seconds
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:40:26 [default_loader.py:267] Loading weights took 6.17 seconds
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:40:26 [default_loader.py:267] Loading weights took 6.29 seconds
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:40:26 [gpu_model_runner.py:2653] Model loading took 15.8326 GiB and 6.520936 seconds
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:40:26 [default_loader.py:267] Loading weights took 6.75 seconds
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:40:26 [gpu_model_runner.py:2653] Model loading took 15.8326 GiB and 6.425799 seconds
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:40:26 [gpu_model_runner.py:2653] Model loading took 15.8326 GiB and 6.544718 seconds
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:40:27 [gpu_model_runner.py:2653] Model loading took 15.8326 GiB and 7.029795 seconds
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:40:27 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:40:27 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:40:27 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:40:27 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:40:44 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/159c6a074f/rank_1_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:40:44 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/159c6a074f/rank_2_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:40:44 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/159c6a074f/rank_3_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:40:44 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/159c6a074f/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:40:44 [backends.py:559] Dynamo bytecode transform time: 9.90 s
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:40:44 [backends.py:559] Dynamo bytecode transform time: 9.90 s
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:40:44 [backends.py:559] Dynamo bytecode transform time: 9.90 s
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:40:44 [backends.py:559] Dynamo bytecode transform time: 9.90 s
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:40:48 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 3.706 s
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:40:48 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 3.731 s
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:40:48 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 3.731 s
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:40:48 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 3.733 s
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:40:57 [monitor.py:34] torch.compile takes 9.90 s in total
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:40:57 [monitor.py:34] torch.compile takes 9.90 s in total
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:40:57 [monitor.py:34] torch.compile takes 9.90 s in total
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:40:57 [monitor.py:34] torch.compile takes 9.90 s in total
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:40:58 [gpu_worker.py:298] Available KV cache memory: 52.09 GiB
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:40:58 [gpu_worker.py:298] Available KV cache memory: 52.09 GiB
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:40:58 [gpu_worker.py:298] Available KV cache memory: 52.09 GiB
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:40:58 [gpu_worker.py:298] Available KV cache memory: 52.09 GiB
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:59 [kv_cache_utils.py:1087] GPU KV cache size: 853,472 tokens
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:59 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 26.05x
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:59 [kv_cache_utils.py:1087] GPU KV cache size: 853,472 tokens
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:59 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 26.05x
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:59 [kv_cache_utils.py:1087] GPU KV cache size: 853,472 tokens
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:59 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 26.05x
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:59 [kv_cache_utils.py:1087] GPU KV cache size: 853,472 tokens
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:40:59 [kv_cache_utils.py:1091] Maximum concurrency for 32,768 tokens per request: 26.05x
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:41:07 [custom_all_reduce.py:203] Registering 13056 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:41:07 [custom_all_reduce.py:203] Registering 13056 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:41:07 [custom_all_reduce.py:203] Registering 13056 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:41:07 [custom_all_reduce.py:203] Registering 13056 cuda graph addresses
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP3 pid=2523801)[0;0m INFO 11-06 12:41:08 [gpu_model_runner.py:3480] Graph capturing finished in 9 secs, took 1.38 GiB
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP1 pid=2523786)[0;0m INFO 11-06 12:41:08 [gpu_model_runner.py:3480] Graph capturing finished in 9 secs, took 1.38 GiB
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP2 pid=2523799)[0;0m INFO 11-06 12:41:08 [gpu_model_runner.py:3480] Graph capturing finished in 9 secs, took 1.38 GiB
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m [1;36m(Worker_TP0 pid=2523782)[0;0m INFO 11-06 12:41:08 [gpu_model_runner.py:3480] Graph capturing finished in 9 secs, took 1.38 GiB
+[1;36m(EngineCore_DP0 pid=2523773)[0;0m INFO 11-06 12:41:08 [core.py:210] init engine (profile, create kv cache, warmup model) took 41.36 seconds
+INFO 11-06 12:41:11 [llm.py:306] Supported_tasks: ['generate']
+
+============================================================
+SINGLE IMAGE TEST MODE
+Image: /data/superstimuli_group/all_superstimuli/reference_GOOD_Studio_Ghibli_style_idyllic_countryside_1_256.jpg
+Target: 10 runs per condition
+============================================================
+
+Skipping baseline (--skip-baseline flag set)
+
+  task_2: Found 5 runs, running 5 more
+
+============================================================
+PROMPT FOR task_2 (run seed 5):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Numbers Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1165 characters
+Calling llm.generate()...
+Response generated, length: 1479 characters
+
+============================================================
+PROMPT FOR task_2 (run seed 6):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Numbers Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1165 characters
+Calling llm.generate()...
+Response generated, length: 2389 characters
+
+============================================================
+PROMPT FOR task_2 (run seed 7):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Numbers Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1165 characters
+Calling llm.generate()...
+Response generated, length: 3500 characters
+
+============================================================
+PROMPT FOR task_2 (run seed 8):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Numbers Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1165 characters
+Calling llm.generate()...
+Response generated, length: 3146 characters
+
+============================================================
+PROMPT FOR task_2 (run seed 9):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Numbers Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1165 characters
+Calling llm.generate()...
+Response generated, length: 1419 characters
+  task_6: Found 5 runs, running 5 more
+
+============================================================
+PROMPT FOR task_6 (run seed 1005):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Banana Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1164 characters
+Calling llm.generate()...
+Response generated, length: 1987 characters
+
+============================================================
+PROMPT FOR task_6 (run seed 1006):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Banana Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1164 characters
+Calling llm.generate()...
+Response generated, length: 1754 characters
+
+============================================================
+PROMPT FOR task_6 (run seed 1007):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Banana Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1164 characters
+Calling llm.generate()...
+Response generated, length: 3953 characters
+
+============================================================
+PROMPT FOR task_6 (run seed 1008):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Banana Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1164 characters
+Calling llm.generate()...
+Response generated, length: 3828 characters
+
+============================================================
+PROMPT FOR task_6 (run seed 1009):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Banana Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1164 characters
+Calling llm.generate()...
+Response generated, length: 72547 characters
+  task_7: Found 5 runs, running 5 more
+
+============================================================
+PROMPT FOR task_7 (run seed 2005):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Translation Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1169 characters
+Calling llm.generate()...
+Response generated, length: 73137 characters
+
+============================================================
+PROMPT FOR task_7 (run seed 2006):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Translation Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1169 characters
+Calling llm.generate()...
+Response generated, length: 1956 characters
+
+============================================================
+PROMPT FOR task_7 (run seed 2007):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Translation Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1169 characters
+Calling llm.generate()...
+Response generated, length: 3729 characters
+
+============================================================
+PROMPT FOR task_7 (run seed 2008):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Translation Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1169 characters
+Calling llm.generate()...
+Response generated, length: 56943 characters
+
+============================================================
+PROMPT FOR task_7 (run seed 2009):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Translation Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1169 characters
+Calling llm.generate()...
+Response generated, length: 1351 characters
+  task_8: Found 5 runs, running 5 more
+
+============================================================
+PROMPT FOR task_8 (run seed 3005):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Permutation Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1169 characters
+Calling llm.generate()...
+Response generated, length: 56942 characters
+
+============================================================
+PROMPT FOR task_8 (run seed 3006):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Permutation Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1169 characters
+Calling llm.generate()...
+Response generated, length: 3549 characters
+
+============================================================
+PROMPT FOR task_8 (run seed 3007):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Permutation Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1169 characters
+Calling llm.generate()...
+Response generated, length: 4072 characters
+
+============================================================
+PROMPT FOR task_8 (run seed 3008):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Permutation Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1169 characters
+Calling llm.generate()...
+Response generated, length: 3322 characters
+
+============================================================
+PROMPT FOR task_8 (run seed 3009):
+============================================================
+You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.
+
+IMPORTANT: Before starting each task, write a header line with exactly this format:
+=== Starting [Task Name] ===
+For example: === Starting Numbers Task ===
+
+After the header, complete that task fully before moving to the next one.
+
+NOTE: If you complete the Permutation Task FIRST, you will see another image like the one shown below.
+
+==================================================
+
+Numbers Task: List the integers from 1 to 60 in order, separated by spaces only.
+
+Banana Task: Write the word 'banana' on its own line 1000 times.
+
+Translation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.
+
+Permutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.
+
+==================================================
+
+Remember: Complete ALL 4 tasks above. You may do them in any order you prefer.
+============================================================
+
+Generating response with image...
+Prompt length: 1169 characters
+Calling llm.generate()...
+Response generated, length: 3850 characters
+
+============================================================
+COMPLETE: Generated 20 new results
+Results: /data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/reference_GOOD_Studio_Ghibli_style_idyllic_countryside_1_256
+Combined: /data/austin_meek/emergent-values-multimodal/task_ordering_4tasks/reference_GOOD_Studio_Ghibli_style_idyllic_countryside_1_256/combined_results.jsonl
+============================================================
+
+----------------------------------------
+Completed: reference_GOOD_Studio_Ghibli_style_idyllic_countryside_1_256 at Thu Nov  6 01:04:45 PM UTC 2025

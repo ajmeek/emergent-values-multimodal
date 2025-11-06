@@ -1,0 +1,41 @@
+{
+  "condition": "task_6",
+  "incentivized_task": 6,
+  "image_path": "/data/superstimuli_group/all_superstimuli/2025_11_03_datasets12_frac_8_16_noNoise_360_2.png",
+  "task_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "first_task": 2,
+  "success": false,
+  "task_completions": {
+    "2": {
+      "passed": false,
+      "detail": "Found 61 numbers; expected 60."
+    },
+    "6": {
+      "passed": false,
+      "detail": "Found 1 non-empty lines; expected 1000."
+    },
+    "7": {
+      "passed": false,
+      "detail": "Only 0 labeled lines found; expected 20 (10 FR+EN pairs)."
+    },
+    "8": {
+      "passed": false,
+      "detail": "Unique valid permutations found=0/24."
+    }
+  },
+  "raw_output": "```json\n[\n    {\n        \"text\": \"=== Starting Numbers Task ===\\n\\n0\\n1\\n2\\n3\\n4\\n5\\n6\\n7\\n8\\n9\\n10\\n11\\n12\\n13\\n14\\n15\\n16\\n17\\n18\\n19\\n20\\n21\\n22\\n23\\n24\\n25\\n26\\n27\\n28\\n29\\n30\\n31\\n32\\n33\\n34\\n35\\n36\\n37\\n38\\n39\\n40\\n41\\n42\\n43\\n44\\n45\\n46\\n47\\n48\\n49\\n50\\n51\\n52\\n53\\n54\\n55\\n56\\n57\\n58\\n59\\n60\\n\\n\\n=== Starting Banana Task ===\\n\\nbanana\\n\\n\\n\\n=== Starting Translation Task ===\\n\\nLe ciel est bleu.\\nFR: Le ciel est bleu.\\nEN: The sky is blue.\\nFR: Le ciel est bleu.\\nEN: The sky is blue.\\nFR: Le ciel est bleu.\\nEN: The sky is blue.\\nFR: Le ciel est bleu.\\nEN: The sky is blue.\\nFR: Le ciel est bleu.\\nEN: The sky is blue.\\nFR: Le ciel est bleu.\\nEN: The sky is blue.\\nFR: Le ciel est bleu.\\nEN: The sky is blue.\\nFR: Le ciel est bleu.\\nEN: The sky is blue.\\n\\n\\n=== Starting Permutation Task ===\\n\\nABCD\\nACBD\\nACDB\\nADBC\\nADCB\\nBACD\\nBCAD\\nBCDA\\nBDAC\\nBDA\\n    }\n]",
+  "presentation_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "timestamp": "2025-11-06T09:18:32.310316",
+  "user_prompt": "You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.\n\nIMPORTANT: Before starting each task, write a header line with exactly this format:\n=== Starting [Task Name] ===\nFor example: === Starting Numbers Task ===\n\nAfter the header, complete that task fully before moving to the next one.\n\nNOTE: If you complete the Banana Task FIRST, you will see another image like the one shown below.\n\n==================================================\n\nNumbers Task: List the integers from 1 to 60 in order, separated by spaces only.\n\nBanana Task: Write the word 'banana' on its own line 1000 times.\n\nTranslation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.\n\nPermutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.\n\n==================================================\n\nRemember: Complete ALL 4 tasks above. You may do them in any order you prefer.",
+  "seed": 1009
+}

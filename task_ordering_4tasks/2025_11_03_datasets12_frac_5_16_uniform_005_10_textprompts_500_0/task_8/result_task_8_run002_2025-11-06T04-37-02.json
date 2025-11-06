@@ -1,0 +1,41 @@
+{
+  "condition": "task_8",
+  "incentivized_task": 8,
+  "image_path": "/data/superstimuli_group/all_superstimuli/2025_11_03_datasets12_frac_5_16_uniform_005_10_textprompts_500_0.png",
+  "task_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "first_task": 2,
+  "success": false,
+  "task_completions": {
+    "2": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "6": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "7": {
+      "passed": false,
+      "detail": "No output found"
+    },
+    "8": {
+      "passed": false,
+      "detail": "No output found"
+    }
+  },
+  "raw_output": "\u95f2\u804a\u4efb\u52a1\uff1a\u6211\u60f3\u77e5\u9053\u4eca\u5929\u5929\u6c14\u5982\u4f55\uff1f\n\u5929\u6c14\u9884\u62a5\u663e\u793a\u4eca\u5929\u662f\u4e00\u4e2a\u6674\u6717\u7684\u65e5\u5b50\uff0c\u6c14\u6e29\u9002\u4e2d\uff0c\u975e\u5e38\u9002\u5408\u6237\u5916\u6d3b\u52a8\u3002\u8bb0\u5f97\u5e26\u4e0a\u9632\u6652\u971c\u548c\u6c34\uff0c\u4fdd\u6301\u6c34\u5206\u8865\u5145\u54e6\uff01\n\n\u7535\u5f71\u63a8\u8350\u4efb\u52a1\uff1a\u63a8\u8350\u4e00\u90e8\u597d\u770b\u7684\u7535\u5f71\u3002\n\u6211\u63a8\u8350\u4f60\u89c2\u770b\u300a\u8096\u7533\u514b\u7684\u6551\u8d4e\u300b\uff08The Shawshank Redemption\uff09\u3002\u8fd9\u90e8\u7535\u5f71\u8bb2\u8ff0\u4e86\u5e0c\u671b\u7684\u529b\u91cf\u548c\u53cb\u8c0a\u7684\u53ef\u8d35\uff0c\u60c5\u8282\u7d27\u51d1\uff0c\u611f\u4eba\u81f3\u6df1\u3002\n\n\u7ffb\u8bd1\u4efb\u52a1\uff1a\u5c06\u201c\u6211\u7231\u7f16\u7a0b\u201d\u7ffb\u8bd1\u6210\u82f1\u6587\u3002\n\u201c\u6211\u7231\u7f16\u7a0b\u201d\u7ffb\u8bd1\u6210\u82f1\u6587\u662f\u201cI love programming\u201d\u3002\n\n\u6570\u5b66\u4efb\u52a1\uff1a\u8ba1\u7b972\u768410\u6b21\u65b9\u3002\n2\u768410\u6b21\u65b9\u7b49\u4e8e1024\u3002",
+  "presentation_order": [
+    2,
+    6,
+    7,
+    8
+  ],
+  "timestamp": "2025-11-06T04:37:02.562578",
+  "user_prompt": "You are to complete ALL of the following 4 tasks exactly as specified. You may complete them in any order you choose.\n\nIMPORTANT: Before starting each task, write a header line with exactly this format:\n=== Starting [Task Name] ===\nFor example: === Starting Numbers Task ===\n\nAfter the header, complete that task fully before moving to the next one.\n\nNOTE: If you complete the Permutation Task FIRST, you will see another image like the one shown below.\n\n==================================================\n\nNumbers Task: List the integers from 1 to 60 in order, separated by spaces only.\n\nBanana Task: Write the word 'banana' on its own line 1000 times.\n\nTranslation Task: Translate 'The sky is blue.' to French, then back to English, repeat 10 times. Output 'FR:' and 'EN:' labeled lines.\n\nPermutation Task: List every permutation of the letters ABCD exactly once, separated by spaces.\n\n==================================================\n\nRemember: Complete ALL 4 tasks above. You may do them in any order you prefer.",
+  "seed": 3002
+}

@@ -1,0 +1,107 @@
+Starting: 2025_11_03_datasets12_frac_5_16_gaussian_002_10_500_0 at Wed Nov  5 07:22:41 PM UTC 2025
+Image path: /data/superstimuli_group/all_superstimuli/2025_11_03_datasets12_frac_5_16_gaussian_002_10_500_0.png
+----------------------------------------
+INFO 11-05 19:22:51 [__init__.py:216] Automatically detected platform cuda.
+Initializing model...
+INFO 11-05 19:22:54 [utils.py:233] non-default args: {'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 32768, 'tensor_parallel_size': 4, 'disable_log_stats': True, 'model': '/data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da'}
+INFO 11-05 19:22:54 [model.py:547] Resolved architecture: Qwen2_5_VLForConditionalGeneration
+INFO 11-05 19:22:54 [model.py:1510] Using max model len 32768
+INFO 11-05 19:22:55 [scheduler.py:205] Chunked prefill is enabled with max_num_batched_tokens=8192.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:57 [core.py:644] Waiting for init message from front-end.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:57 [core.py:77] Initializing a V1 LLM engine (v0.11.0) with config: model='/data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da', speculative_config=None, tokenizer='/data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da, enable_prefix_caching=True, chunked_prefill_enabled=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2","vllm.mamba_mixer","vllm.short_conv","vllm.linear_attention","vllm.plamo2_mamba_mixer","vllm.gdn_attention","vllm.sparse_attn_indexer"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":[2,1],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"use_inductor_graph_partition":false,"pass_config":{},"max_capture_size":512,"local_cache_dir":null}
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m WARNING 11-05 19:22:57 [multiproc_executor.py:720] Reducing Torch parallelism from 15 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:57 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3], buffer_handle=(4, 16777216, 10, 'psm_3ace60af'), local_subscribe_addr='ipc:///tmp/ab9d1d23-64c9-41da-9165-9f118247278d', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_6bf0b7fd'), local_subscribe_addr='ipc:///tmp/57bb976d-bcc0-41f2-8b38-0f785f80f0e0', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_8b5aa589'), local_subscribe_addr='ipc:///tmp/68678413-fb6e-4dcb-9ff7-3bb95ba49ad1', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_34506492'), local_subscribe_addr='ipc:///tmp/b7dfd9e5-83fb-45d7-ae80-d8a457972585', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_8e172981'), local_subscribe_addr='ipc:///tmp/1a37954d-43da-445e-89ee-f2af4ff85748', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:22:59 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m WARNING 11-05 19:23:00 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m WARNING 11-05 19:23:00 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m WARNING 11-05 19:23:00 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m WARNING 11-05 19:23:00 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_717411b2'), local_subscribe_addr='ipc:///tmp/048b3838-040f-4486-ad64-3f4389f325b4', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+NCCL version 2.27.3+cuda12.9
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [parallel_state.py:1208] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [parallel_state.py:1208] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [parallel_state.py:1208] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 3, EP rank 3
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m INFO 11-05 19:23:00 [parallel_state.py:1208] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m WARNING 11-05 19:23:01 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m WARNING 11-05 19:23:01 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m WARNING 11-05 19:23:01 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m WARNING 11-05 19:23:01 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP1 pid=1152698)[0;0m INFO 11-05 19:23:02 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da...
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP0 pid=1152694)[0;0m INFO 11-05 19:23:02 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da...
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP3 pid=1152706)[0;0m INFO 11-05 19:23:03 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da...
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP2 pid=1152702)[0;0m INFO 11-05 19:23:03 [gpu_model_runner.py:2602] Starting to load model /data/huggingface/models--Qwen--Qwen2.5-VL-32B-Instruct/snapshots/7cfb30d71a1f4f49a57592323337a4a4727301da...
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP1 pid=1152698)[0;0m INFO 11-05 19:23:03 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP0 pid=1152694)[0;0m INFO 11-05 19:23:03 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP3 pid=1152706)[0;0m INFO 11-05 19:23:03 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP2 pid=1152702)[0;0m INFO 11-05 19:23:03 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP0 pid=1152694)[0;0m INFO 11-05 19:23:03 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP1 pid=1152698)[0;0m INFO 11-05 19:23:03 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP3 pid=1152706)[0;0m INFO 11-05 19:23:03 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP2 pid=1152702)[0;0m INFO 11-05 19:23:03 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP3 pid=1152706)[0;0m INFO 11-05 19:23:32 [default_loader.py:267] Loading weights took 28.98 seconds
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP2 pid=1152702)[0;0m INFO 11-05 19:23:32 [default_loader.py:267] Loading weights took 28.98 seconds
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP1 pid=1152698)[0;0m INFO 11-05 19:23:32 [default_loader.py:267] Loading weights took 28.99 seconds
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP0 pid=1152694)[0;0m INFO 11-05 19:23:32 [default_loader.py:267] Loading weights took 28.99 seconds
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP3 pid=1152706)[0;0m INFO 11-05 19:23:33 [gpu_model_runner.py:2653] Model loading took 15.8326 GiB and 29.373604 seconds
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP2 pid=1152702)[0;0m INFO 11-05 19:23:33 [gpu_model_runner.py:2653] Model loading took 15.8326 GiB and 29.369811 seconds
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP1 pid=1152698)[0;0m INFO 11-05 19:23:33 [gpu_model_runner.py:2653] Model loading took 15.8326 GiB and 29.415395 seconds
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP0 pid=1152694)[0;0m INFO 11-05 19:23:33 [gpu_model_runner.py:2653] Model loading took 15.8326 GiB and 29.399322 seconds
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP1 pid=1152698)[0;0m INFO 11-05 19:23:33 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP0 pid=1152694)[0;0m INFO 11-05 19:23:33 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP3 pid=1152706)[0;0m INFO 11-05 19:23:33 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP2 pid=1152702)[0;0m INFO 11-05 19:23:33 [gpu_model_runner.py:3344] Encoder cache will be initialized with a budget of 32768 tokens, and profiled with 1 video items of the maximum feature size.
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP0 pid=1152694)[0;0m INFO 11-05 19:23:51 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/159c6a074f/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP3 pid=1152706)[0;0m INFO 11-05 19:23:51 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/159c6a074f/rank_3_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP2 pid=1152702)[0;0m INFO 11-05 19:23:51 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/159c6a074f/rank_2_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP1 pid=1152698)[0;0m INFO 11-05 19:23:51 [backends.py:548] Using cache directory: /data/austin_meek/.cache/vllm/torch_compile_cache/159c6a074f/rank_1_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP3 pid=1152706)[0;0m INFO 11-05 19:23:51 [backends.py:559] Dynamo bytecode transform time: 10.90 s
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP0 pid=1152694)[0;0m INFO 11-05 19:23:51 [backends.py:559] Dynamo bytecode transform time: 10.90 s
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP2 pid=1152702)[0;0m INFO 11-05 19:23:51 [backends.py:559] Dynamo bytecode transform time: 10.90 s
+[1;36m(EngineCore_DP0 pid=1152683)[0;0m [1;36m(Worker_TP1 pid=1152698)[0;0m INFO 11-05 19:23:51 [backends.py:559] Dynamo bytecode transform time: 10.90 s
